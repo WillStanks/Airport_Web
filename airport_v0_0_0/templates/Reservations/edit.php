@@ -25,7 +25,7 @@
             <fieldset>
                 <legend><?= __('Edit Reservation') ?></legend>
                 <?php
-                echo $this->Form->control('user_id', ['type' => 'hidden']);
+                // echo $this->Form->control('user_id', ['type' => 'hidden']);
                 echo $this->Form->control('title');
                 echo $this->Form->control('depCity');
                 echo $this->Form->control('destCity');

@@ -19,6 +19,7 @@ class ReservationsController extends AppController
      */
     public function index()
     {
+        $this->Authorization->skipAuthorization();
         $this->paginate = [
             'contain' => ['Users'],
         ];
@@ -36,6 +37,7 @@ class ReservationsController extends AppController
      */
     public function view($slug = null)
     {
+        $this->Authorization->skipAuthorization();
         $reservation = $this->Reservations->findBySlug($slug)->contain('Users')->contain('Planes')->firstOrFail();
 
         /*        $reservation = $this->Reservations->get($id, [
@@ -52,10 +54,12 @@ class ReservationsController extends AppController
     public function add()
     {
         $reservation = $this->Reservations->newEmptyEntity();
+        $this->Authorization->authorize($reservation);
         if ($this->request->is('post')) {
             $reservation = $this->Reservations->patchEntity($reservation, $this->request->getData());
 
-            $reservation->user_id = 1;
+            // Set the user_id from the current user.
+            $reservation->user_id = $this->request->getAttribute('identity')->getIdentifier();
 
             if ($this->Reservations->save($reservation)) {
                 $this->Flash->success(__('The reservation has been saved.'));
@@ -79,11 +83,15 @@ class ReservationsController extends AppController
     public function edit($slug = null)
     {
         $reservation = $this->Reservations->findBySlug($slug)->contain('Users')->contain('Planes')->firstOrFail();
+        $this->Authorization->authorize($reservation);
         /*       $reservation = $this->Reservations->get($id, [
             'contain' => ['Planes'],
         ]);*/
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $reservation = $this->Reservations->patchEntity($reservation, $this->request->getData());
+            $reservation = $this->Reservations->patchEntity($reservation, $this->request->getData(), [
+                // Added: Disable modification of user_id.
+                'accessibleFields' => ['user_id' => false]
+            ]);
             if ($this->Reservations->save($reservation)) {
                 $this->Flash->success(__('The reservation has been saved.'));
 
@@ -107,6 +115,7 @@ class ReservationsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $reservation = $this->Reservations->get($id);
+        $this->Authorization->authorize($reservation);
         if ($this->Reservations->delete($reservation)) {
             $this->Flash->success(__('The reservation has been deleted.'));
         } else {
