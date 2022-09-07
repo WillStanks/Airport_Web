@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Entity;
@@ -34,16 +35,16 @@ class Reservation extends Entity
      * @var array<string, bool>
      */
     protected $_accessible = [
-        'user_id' => true,
+        //        'user_id' => true,
         'title' => true,
         'depCity' => true,
         'destCity' => true,
-        'slug' => true,
+        //        'slug' => true,
         'body' => true,
         'published' => true,
-        'created' => true,
-        'modified' => true,
-        'user' => true,
+        //        'created' => true,
+        //        'modified' => true,
+        //        'user' => true,
         'planes' => true,
     ];
 }

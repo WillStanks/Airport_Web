@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Reservation[]|\Cake\Collection\CollectionInterface $reservations
@@ -24,23 +25,23 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($reservations as $reservation): ?>
-                <tr>
-                    <td><?= $this->Number->format($reservation->id) ?></td>
-                    <td><?= $reservation->has('user') ? $this->Html->link($reservation->user->id, ['controller' => 'Users', 'action' => 'view', $reservation->user->id]) : '' ?></td>
-                    <td><?= h($reservation->title) ?></td>
-                    <td><?= h($reservation->depCity) ?></td>
-                    <td><?= h($reservation->destCity) ?></td>
-                    <td><?= h($reservation->slug) ?></td>
-                    <td><?= h($reservation->published) ?></td>
-                    <td><?= h($reservation->created) ?></td>
-                    <td><?= h($reservation->modified) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $reservation->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $reservation->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $reservation->id], ['confirm' => __('Are you sure you want to delete # {0}?', $reservation->id)]) ?>
-                    </td>
-                </tr>
+                <?php foreach ($reservations as $reservation) : ?>
+                    <tr>
+                        <td><?= $this->Number->format($reservation->id) ?></td>
+                        <td><?= $reservation->has('user') ? $this->Html->link($reservation->user->id, ['controller' => 'Users', 'action' => 'view', $reservation->user->id]) : '' ?></td>
+                        <td><?= h($reservation->title) ?></td>
+                        <td><?= h($reservation->depCity) ?></td>
+                        <td><?= h($reservation->destCity) ?></td>
+                        <td><?= h($reservation->slug) ?></td>
+                        <td><?= h($reservation->published) ?></td>
+                        <td><?= h($reservation->created) ?></td>
+                        <td><?= h($reservation->modified) ?></td>
+                        <td class="actions">
+                            <?= $this->Html->link(__('View'), ['action' => 'view', $reservation->slug]) ?>
+                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $reservation->slug]) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $reservation->id], ['confirm' => __('Are you sure you want to delete # {0}?', $reservation->id)]) ?>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
@@ -33,12 +34,13 @@ class ReservationsController extends AppController
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view($slug = null)
     {
-        $reservation = $this->Reservations->get($id, [
-            'contain' => ['Users', 'Planes'],
-        ]);
+        $reservation = $this->Reservations->findBySlug($slug)->contain('Users')->contain('Planes')->firstOrFail();
 
+        /*        $reservation = $this->Reservations->get($id, [
+            'contain' => ['Users', 'Planes'],
+        ]);*/
         $this->set(compact('reservation'));
     }
 
@@ -52,6 +54,9 @@ class ReservationsController extends AppController
         $reservation = $this->Reservations->newEmptyEntity();
         if ($this->request->is('post')) {
             $reservation = $this->Reservations->patchEntity($reservation, $this->request->getData());
+
+            $reservation->user_id = 1;
+
             if ($this->Reservations->save($reservation)) {
                 $this->Flash->success(__('The reservation has been saved.'));
 
@@ -59,9 +64,9 @@ class ReservationsController extends AppController
             }
             $this->Flash->error(__('The reservation could not be saved. Please, try again.'));
         }
-        $users = $this->Reservations->Users->find('list', ['limit' => 200])->all();
+        // $users = $this->Reservations->Users->find('list', ['limit' => 200])->all();
         $planes = $this->Reservations->Planes->find('list', ['limit' => 200])->all();
-        $this->set(compact('reservation', 'users', 'planes'));
+        $this->set(compact('reservation', 'planes'));
     }
 
     /**
@@ -71,11 +76,12 @@ class ReservationsController extends AppController
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function edit($id = null)
+    public function edit($slug = null)
     {
-        $reservation = $this->Reservations->get($id, [
+        $reservation = $this->Reservations->findBySlug($slug)->contain('Users')->contain('Planes')->firstOrFail();
+        /*       $reservation = $this->Reservations->get($id, [
             'contain' => ['Planes'],
-        ]);
+        ]);*/
         if ($this->request->is(['patch', 'post', 'put'])) {
             $reservation = $this->Reservations->patchEntity($reservation, $this->request->getData());
             if ($this->Reservations->save($reservation)) {

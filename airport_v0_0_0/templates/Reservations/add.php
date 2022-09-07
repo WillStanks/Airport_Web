@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Reservation $reservation
@@ -19,14 +20,14 @@
             <fieldset>
                 <legend><?= __('Add Reservation') ?></legend>
                 <?php
-                    echo $this->Form->control('user_id', ['options' => $users]);
-                    echo $this->Form->control('title');
-                    echo $this->Form->control('depCity');
-                    echo $this->Form->control('destCity');
-                    echo $this->Form->control('slug');
-                    echo $this->Form->control('body');
-                    echo $this->Form->control('published');
-                    echo $this->Form->control('planes._ids', ['options' => $planes]);
+                echo $this->Form->control('user_id', ['type' => 'hidden', 'value' => 1]);
+                echo $this->Form->control('title');
+                echo $this->Form->control('depCity');
+                echo $this->Form->control('destCity');
+                // echo $this->Form->control('slug');
+                echo $this->Form->control('body');
+                echo $this->Form->control('published');
+                echo $this->Form->control('planes._ids', ['options' => $planes]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

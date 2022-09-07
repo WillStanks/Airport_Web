@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -7,6 +8,8 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Utility\Text;
+use Cake\Event\EventInterface;
 
 /**
  * Reservations Model
@@ -90,13 +93,13 @@ class ReservationsTable extends Table
             ->requirePresence('destCity', 'create')
             ->notEmptyString('destCity');
 
-        $validator
+        /*        $validator
             ->scalar('slug')
             ->maxLength('slug', 191)
             ->requirePresence('slug', 'create')
             ->notEmptyString('slug')
             ->add('slug', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
-
+*/
         $validator
             ->scalar('body')
             ->allowEmptyString('body');
@@ -121,5 +124,14 @@ class ReservationsTable extends Table
         $rules->add($rules->existsIn('user_id', 'Users'), ['errorField' => 'user_id']);
 
         return $rules;
+    }
+
+    public function beforeSave(EventInterface $event, $entity, $options)
+    {
+        if ($entity->isNew() && !$entity->slug) {
+            $sluggedTitle = Text::slug($entity->title);
+            // trim slug to maximum length defined in schema
+            $entity->slug = substr($sluggedTitle, 0, 191);
+        }
     }
 }
