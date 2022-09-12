@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
@@ -18,6 +19,7 @@ class PlanesController extends AppController
      */
     public function index()
     {
+        $this->Authorization->skipAuthorization();
         $planes = $this->paginate($this->Planes);
 
         $this->set(compact('planes'));
@@ -32,6 +34,7 @@ class PlanesController extends AppController
      */
     public function view($id = null)
     {
+        $this->Authorization->skipAuthorization();
         $plane = $this->Planes->get($id, [
             'contain' => ['Reservations'],
         ]);
@@ -46,6 +49,7 @@ class PlanesController extends AppController
      */
     public function add()
     {
+        $this->Authorization->skipAuthorization();
         $plane = $this->Planes->newEmptyEntity();
         if ($this->request->is('post')) {
             $plane = $this->Planes->patchEntity($plane, $this->request->getData());
@@ -69,6 +73,7 @@ class PlanesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->Authorization->skipAuthorization();
         $plane = $this->Planes->get($id, [
             'contain' => ['Reservations'],
         ]);
