@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Sep 12, 2022 at 01:00 PM
--- Server version: 8.0.27
--- PHP Version: 7.4.27
+-- Hôte : localhost
+-- Généré le : mer. 14 sep. 2022 à 20:11
+-- Version du serveur : 8.0.27
+-- Version de PHP : 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `airport_v0_0_0`
+-- Base de données : `airport_v0_0_0`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `planes`
+-- Structure de la table `planes`
 --
 
 CREATE TABLE `planes` (
@@ -37,7 +37,7 @@ CREATE TABLE `planes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `planes`
+-- Déchargement des données de la table `planes`
 --
 
 INSERT INTO `planes` (`id`, `title`, `seats`, `details`, `created`, `modified`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `planes` (`id`, `title`, `seats`, `details`, `created`, `modified`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `planes_reservations`
+-- Structure de la table `planes_reservations`
 --
 
 CREATE TABLE `planes_reservations` (
@@ -56,7 +56,7 @@ CREATE TABLE `planes_reservations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `planes_reservations`
+-- Déchargement des données de la table `planes_reservations`
 --
 
 INSERT INTO `planes_reservations` (`plane_id`, `reservation_id`) VALUES
@@ -65,7 +65,7 @@ INSERT INTO `planes_reservations` (`plane_id`, `reservation_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reservations`
+-- Structure de la table `reservations`
 --
 
 CREATE TABLE `reservations` (
@@ -82,7 +82,7 @@ CREATE TABLE `reservations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `reservations`
+-- Déchargement des données de la table `reservations`
 --
 
 INSERT INTO `reservations` (`id`, `user_id`, `title`, `depCity`, `destCity`, `slug`, `body`, `published`, `created`, `modified`) VALUES
@@ -91,32 +91,32 @@ INSERT INTO `reservations` (`id`, `user_id`, `title`, `depCity`, `destCity`, `sl
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Structure de la table `roles`
 --
 
 CREATE TABLE `roles` (
   `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` text COLLATE utf8mb4_general_ci NOT NULL
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `roles`
+-- Déchargement des données de la table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `description`) VALUES
 (2, 'Admin', 'Ceci est un admin\r\n'),
-(3, 'Admin', 'Ceci est un admin\r\n');
+(3, 'Utilisateur', 'Ceci est un utilisateur\n');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
   `id` int NOT NULL,
-  `role_id` int DEFAULT NULL,
+  `role_id` int DEFAULT '3',
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created` datetime DEFAULT NULL,
@@ -124,32 +124,34 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `role_id`, `email`, `password`, `created`, `modified`) VALUES
-(4, NULL, 'will@will.com', '$2y$10$NW1.Bot3pOhdOfYtzUKEnuv5RH2anfXAXiK.jFjFXBaFZib/Izgrq', '2022-09-11 17:16:58', '2022-09-11 17:16:58');
+(4, 2, 'will@will.com', '$2y$10$NW1.Bot3pOhdOfYtzUKEnuv5RH2anfXAXiK.jFjFXBaFZib/Izgrq', '2022-09-11 17:16:58', '2022-09-11 17:16:58'),
+(5, 3, 'william4800@hotmail.com', '$2y$10$HHEYO4/JNR4sFY4fBq5QIumUHMFHES9y4N7Kgkg2Q5tEgx/WJyyAC', '2022-09-14 20:02:42', '2022-09-14 20:02:42'),
+(6, 3, 'JeanPing@hotmail.com', '$2y$10$X8PMs0n0UnF0kzoCVp5iX.JGg/ZmZg2A6km8VX8d0ShBHLztAV2bO', '2022-09-14 20:08:34', '2022-09-14 20:08:34');
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `planes`
+-- Index pour la table `planes`
 --
 ALTER TABLE `planes`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `title` (`title`);
 
 --
--- Indexes for table `planes_reservations`
+-- Index pour la table `planes_reservations`
 --
 ALTER TABLE `planes_reservations`
   ADD PRIMARY KEY (`plane_id`,`reservation_id`),
   ADD KEY `reservation_id` (`reservation_id`);
 
 --
--- Indexes for table `reservations`
+-- Index pour la table `reservations`
 --
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`id`),
@@ -157,65 +159,65 @@ ALTER TABLE `reservations`
   ADD KEY `user_key` (`user_id`);
 
 --
--- Indexes for table `roles`
+-- Index pour la table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `role_id` (`role_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `planes`
+-- AUTO_INCREMENT pour la table `planes`
 --
 ALTER TABLE `planes`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `reservations`
+-- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT pour la table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `planes_reservations`
+-- Contraintes pour la table `planes_reservations`
 --
 ALTER TABLE `planes_reservations`
   ADD CONSTRAINT `planes_reservations_ibfk_1` FOREIGN KEY (`reservation_id`) REFERENCES `reservations` (`id`),
   ADD CONSTRAINT `planes_reservations_ibfk_2` FOREIGN KEY (`plane_id`) REFERENCES `planes` (`id`);
 
 --
--- Constraints for table `reservations`
+-- Contraintes pour la table `reservations`
 --
 ALTER TABLE `reservations`
   ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `users`
+-- Contraintes pour la table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
