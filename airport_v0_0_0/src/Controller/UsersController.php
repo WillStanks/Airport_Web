@@ -28,9 +28,9 @@ class UsersController extends AppController
         $result = $this->Authentication->getResult();
         // regardless of POST or GET, redirect if user is logged in
         if ($result && $result->isValid()) {
-            // redirect to /articles after login success
+            // redirect to /reservations after login success
             $redirect = $this->request->getQuery('redirect', [
-                'controller' => 'Articles',
+                'controller' => 'Reservations',
                 'action' => 'index',
             ]);
 
@@ -62,6 +62,9 @@ class UsersController extends AppController
     public function index()
     {
         $this->Authorization->skipAuthorization();
+        $this->paginate = [
+            'contain' => ['Roles'],
+        ];
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));
@@ -116,7 +119,7 @@ class UsersController extends AppController
     {
 
         $user = $this->Users->get($id, [
-            'contain' => [],
+            'contain' => ['Roles'],
         ]);
         $this->Authorization->skipAuthorization();
         if ($this->request->is(['patch', 'post', 'put'])) {
@@ -128,7 +131,8 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $this->set(compact('user'));
+        $roles = $this->Users->Roles->find('list', ['limit' => 200])->all();
+        $this->set(compact('user', 'roles'));
     }
 
     /**

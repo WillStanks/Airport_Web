@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -49,6 +50,10 @@ class UsersTable extends Table
 
         $this->hasMany('Reservations', [
             'foreignKey' => 'user_id',
+        ]);
+        $this->belongsTo('Roles', [
+            'foreignKey' => 'role_id',
+            'joinType' => 'INNER',
         ]);
     }
 

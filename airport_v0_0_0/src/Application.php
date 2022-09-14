@@ -78,6 +78,7 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
          */
         if (Configure::read('debug')) {
             $this->addPlugin('DebugKit');
+            Configure::write('DebugKit.ignoreAuthorization', true);
         }
 
         // Load more plugins here

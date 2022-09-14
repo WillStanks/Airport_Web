@@ -64,4 +64,12 @@ class AppController extends Controller
         // actions public, skipping the authentication check
         $this->Authentication->addUnauthenticatedActions(['index', 'view']);
     }
+
+    function beforeRender(\Cake\Event\EventInterface $event)
+    {
+        // store user data in LoggedUser
+        if ($this->request->getSession()->check('Auth')) {
+            $this->set("LoggedUser", $this->request->getSession()->read('Auth'));
+        }
+    }
 }
