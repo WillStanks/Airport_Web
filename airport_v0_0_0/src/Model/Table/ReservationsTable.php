@@ -45,6 +45,9 @@ class ReservationsTable extends Table
     {
         parent::initialize($config);
 
+        // By default Eav strategy will be used.
+        $this->addBehavior('Translate', ['fields' => ['title', 'body']]);
+
         $this->setTable('reservations');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
@@ -107,6 +110,19 @@ class ReservationsTable extends Table
         $validator
             ->boolean('published')
             ->allowEmptyString('published');
+
+        $validator
+            ->allowEmptyFile('image_file')
+            ->add( 'image_file', [
+                'mimeType' => [
+                'rule' => [ 'mimeType', [ 'image/jpg', 'image/png', 'image/jpeg' ] ],
+                'message' => 'Please upload only jpg and png.',
+            ],
+            'fileSize' => [
+                'rule' => [ 'fileSize', '<=', '1MB' ],
+                'message' => 'Image file size must be less than 1MB.',
+            ],
+        ]);
 
         return $validator;
     }

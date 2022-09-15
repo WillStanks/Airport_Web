@@ -19,7 +19,6 @@ class RolesController extends AppController
      */
     public function index()
     {
-        $this->Authorization->skipAuthorization();
         $roles = $this->paginate($this->Roles);
 
         $this->set(compact('roles'));
@@ -34,7 +33,6 @@ class RolesController extends AppController
      */
     public function view($id = null)
     {
-        $this->Authorization->skipAuthorization();
         $role = $this->Roles->get($id, [
             'contain' => ['Users'],
         ]);

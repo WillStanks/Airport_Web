@@ -19,7 +19,6 @@ class PlanesController extends AppController
      */
     public function index()
     {
-        $this->Authorization->skipAuthorization();
         $planes = $this->paginate($this->Planes);
 
         $this->set(compact('planes'));
@@ -34,7 +33,6 @@ class PlanesController extends AppController
      */
     public function view($id = null)
     {
-        $this->Authorization->skipAuthorization();
         $plane = $this->Planes->get($id, [
             'contain' => ['Reservations'],
         ]);
@@ -49,6 +47,18 @@ class PlanesController extends AppController
      */
     public function add()
     {
+
+        // Vérification en contexte i18n
+        if ($this->request->getSession()->check('Config.language')) {
+            $actualLanguage = $this->request->getSession()->read('Config.language'); // langue d'affichage actuellement définie
+            $defaultLanguage = Configure::read('App.defaultLocale'); // langue par défaut de l'application
+            if ($defaultLanguage != $actualLanguage) {
+                $this->Flash->success(__('Adding is available only in the default language'));
+                $this->changeLang($defaultLanguage);
+                return $this->redirect(['action' => 'add']);
+            }
+        }
+        //
         $this->Authorization->skipAuthorization();
         $plane = $this->Planes->newEmptyEntity();
         if ($this->request->is('post')) {

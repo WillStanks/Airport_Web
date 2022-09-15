@@ -16,7 +16,7 @@
     </aside>
     <div class="column-responsive column-80">
         <div class="reservations form content">
-            <?= $this->Form->create($reservation) ?>
+            <?= $this->Form->create($reservation, ['type' => 'file']) ?>
             <fieldset>
                 <legend><?= __('Add Reservation') ?></legend>
                 <?php
@@ -26,6 +26,7 @@
                 echo $this->Form->control('destCity');
                 // echo $this->Form->control('slug');
                 echo $this->Form->control('body');
+                echo $this->Form->control('image_file', ['type' => 'file']);
                 echo $this->Form->control('published');
                 echo $this->Form->control('planes._ids', ['options' => $planes]);
                 ?>

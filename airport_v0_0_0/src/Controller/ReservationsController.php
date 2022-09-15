@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\I18n\I18n;
+use Cake\Core\Configure;
+
 /**
  * Reservations Controller
  *
@@ -53,6 +56,18 @@ class ReservationsController extends AppController
      */
     public function add()
     {
+
+        // Vérification en contexte i18n
+        if ($this->request->getSession()->check('Config.language')) {
+            $actualLanguage = $this->request->getSession()->read('Config.language'); // langue d'affichage actuellement définie
+            $defaultLanguage = Configure::read('App.defaultLocale'); // langue par défaut de l'application
+            if ($defaultLanguage != $actualLanguage) {
+                $this->Flash->success(__('Adding is available only in the default language'));
+                $this->changeLang($defaultLanguage);
+                return $this->redirect(['action' => 'add']);
+            }
+        }
+        //
         $reservation = $this->Reservations->newEmptyEntity();
         $this->Authorization->authorize($reservation);
         if ($this->request->is('post')) {
@@ -60,6 +75,20 @@ class ReservationsController extends AppController
 
             // Set the user_id from the current user.
             $reservation->user_id = $this->request->getAttribute('identity')->getIdentifier();
+
+            if(!$reservation->getErrors){
+                $image = $this->request->getData('image_file');
+
+                $name = $image->getClientFileName();
+
+                $targetPath = WWW_ROOT . 'img' . DS . 'reservations' . DS . $name;
+
+                if($name)
+                    $image->moveTo($targetPath);
+                
+                $reservation->image = $name;
+                
+            }
 
             if ($this->Reservations->save($reservation)) {
                 $this->Flash->success(__('The reservation has been saved.'));

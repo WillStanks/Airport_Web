@@ -43,16 +43,16 @@ class AppController extends Controller
     public function initialize(): void
     {
         parent::initialize();
-
         if ($this->request->getSession()->check('Config.language')) {
             I18n::setLocale($this->request->getSession()->read('Config.language'));
         }
-
+        
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-
+        
         $this->loadComponent('Authentication.Authentication');
         $this->loadComponent('Authorization.Authorization');
+        $this->Authentication->addUnauthenticatedActions(['index', 'view', 'changeLang']);
 
         /*
          * Enable the following component for recommended CakePHP form protection settings.
