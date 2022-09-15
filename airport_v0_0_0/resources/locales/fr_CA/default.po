@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2022-09-11 16:52+0000\n"
-"PO-Revision-Date: 2022-09-11 12:57-0400\n"
+"PO-Revision-Date: 2022-09-14 21:56-0400\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "Language: fr_CA\n"
@@ -18,59 +18,59 @@ msgstr ""
 #: src/Controller/PlanesController.php:53
 #: src/Controller/PlanesController.php:78
 msgid "The plane has been saved."
-msgstr ""
+msgstr "L'avion a été enregistré."
 
 #: src/Controller/PlanesController.php:57
 #: src/Controller/PlanesController.php:82
 msgid "The plane could not be saved. Please, try again."
-msgstr ""
+msgstr "L'avion n'a pas pu être enregistré. Veuillez réessayer."
 
 #: src/Controller/PlanesController.php:100
 msgid "The plane has been deleted."
-msgstr ""
+msgstr "L'avion a été supprimé."
 
 #: src/Controller/PlanesController.php:102
 msgid "The plane could not be deleted. Please, try again."
-msgstr ""
+msgstr "L'avion n'a pas pu être supprimé. Veuillez réessayer."
 
 #: src/Controller/ReservationsController.php:65
 #: src/Controller/ReservationsController.php:96
 msgid "The reservation has been saved."
-msgstr ""
+msgstr "La réservation a été enregistré."
 
 #: src/Controller/ReservationsController.php:69
 #: src/Controller/ReservationsController.php:100
 msgid "The reservation could not be saved. Please, try again."
-msgstr ""
+msgstr "La réservation n'a pas pu être enregistré. Veuillez réessayer."
 
 #: src/Controller/ReservationsController.php:120
 msgid "The reservation has been deleted."
-msgstr ""
+msgstr "La réservation a été supprimé."
 
 #: src/Controller/ReservationsController.php:122
 msgid "The reservation could not be deleted. Please, try again."
-msgstr ""
+msgstr "La réservation n'a pas pu être supprimé. Veuillez réessayer."
 
 #: src/Controller/UsersController.php:41
 msgid "Invalid username or password"
-msgstr ""
+msgstr "Nom d'utilisateur ou mot de passe invalide !"
 
 #: src/Controller/UsersController.php:99 src/Controller/UsersController.php:123
 msgid "The user has been saved."
-msgstr ""
+msgstr "L'utilisateur a été sauvegardé."
 
 #: src/Controller/UsersController.php:103
 #: src/Controller/UsersController.php:127
 msgid "The user could not be saved. Please, try again."
-msgstr ""
+msgstr "L'utilisateur n'a pas pu être enregistré. Veuillez réessayer."
 
 #: src/Controller/UsersController.php:144
 msgid "The user has been deleted."
-msgstr ""
+msgstr "L'utilisateur a été supprimé."
 
 #: src/Controller/UsersController.php:146
 msgid "The user could not be deleted. Please, try again."
-msgstr ""
+msgstr "L'utilisateur n'a pas pu être supprimé. Veuillez réessayer."
 
 #: templates/Planes/add.php:11 templates/Planes/edit.php:11
 #: templates/Planes/index.php:20 templates/Planes/view.php:10
@@ -81,22 +81,22 @@ msgstr ""
 #: templates/Users/index.php:20 templates/Users/view.php:11
 #: templates/Users/view.php:59
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 #: templates/Planes/add.php:12 templates/Planes/edit.php:17
 #: templates/Planes/view.php:13
 msgid "List Planes"
-msgstr ""
+msgstr "Liste des avions"
 
 #: templates/Planes/add.php:19
 msgid "Add Plane"
-msgstr ""
+msgstr "Ajouter un avion"
 
 #: templates/Planes/add.php:27 templates/Planes/edit.php:32
 #: templates/Reservations/add.php:33 templates/Reservations/edit.php:38
 #: templates/Users/add.php:24 templates/Users/edit.php:29
 msgid "Submit"
-msgstr ""
+msgstr "Soumettre"
 
 #: templates/Planes/edit.php:13 templates/Planes/index.php:35
 #: templates/Planes/view.php:79 templates/Reservations/edit.php:15
@@ -113,19 +113,19 @@ msgstr "Supprimer"
 #: templates/Users/edit.php:14 templates/Users/index.php:34
 #: templates/Users/view.php:13 templates/Users/view.php:76
 msgid "Are you sure you want to delete # {0}?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer le # {0}?"
 
 #: templates/Planes/edit.php:24 templates/Planes/view.php:11
 msgid "Edit Plane"
-msgstr ""
+msgstr "Modifier l'avion"
 
 #: templates/Planes/index.php:8 templates/Planes/view.php:14
 msgid "New Plane"
-msgstr ""
+msgstr "Nouvel avion"
 
 #: templates/Planes/index.php:9
 msgid "Planes"
-msgstr ""
+msgstr "Avions"
 
 #: templates/Planes/index.php:33 templates/Planes/view.php:77
 #: templates/Reservations/index.php:40 templates/Reservations/view.php:88
@@ -142,22 +142,22 @@ msgstr "Modifier"
 #: templates/Planes/index.php:44 templates/Reservations/index.php:51
 #: templates/Users/index.php:43
 msgid "first"
-msgstr ""
+msgstr "premier"
 
 #: templates/Planes/index.php:45 templates/Reservations/index.php:52
 #: templates/Users/index.php:44
 msgid "previous"
-msgstr ""
+msgstr "précédent"
 
 #: templates/Planes/index.php:47 templates/Reservations/index.php:54
 #: templates/Users/index.php:46
 msgid "next"
-msgstr ""
+msgstr "prochain"
 
 #: templates/Planes/index.php:48 templates/Reservations/index.php:55
 #: templates/Users/index.php:47
 msgid "last"
-msgstr ""
+msgstr "dernier"
 
 #: templates/Planes/index.php:50 templates/Reservations/index.php:57
 #: templates/Users/index.php:49
@@ -168,17 +168,17 @@ msgstr ""
 
 #: templates/Planes/view.php:12
 msgid "Delete Plane"
-msgstr ""
+msgstr "Supprimer l'avion"
 
 #: templates/Planes/view.php:22 templates/Planes/view.php:54
 #: templates/Reservations/view.php:27 templates/Reservations/view.php:72
 #: templates/Users/view.php:51
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 #: templates/Planes/view.php:26 templates/Reservations/view.php:74
 msgid "Details"
-msgstr ""
+msgstr "Détails"
 
 #: templates/Planes/view.php:30 templates/Planes/view.php:52
 #: templates/Reservations/view.php:43 templates/Reservations/view.php:71
@@ -188,37 +188,37 @@ msgstr ""
 
 #: templates/Planes/view.php:34 templates/Reservations/view.php:73
 msgid "Seats"
-msgstr ""
+msgstr "Sièges"
 
 #: templates/Planes/view.php:38 templates/Planes/view.php:60
 #: templates/Reservations/view.php:47 templates/Reservations/view.php:75
 #: templates/Users/view.php:35 templates/Users/view.php:57
 msgid "Created"
-msgstr ""
+msgstr "Crée"
 
 #: templates/Planes/view.php:42 templates/Planes/view.php:61
 #: templates/Reservations/view.php:51 templates/Reservations/view.php:76
 #: templates/Users/view.php:39 templates/Users/view.php:58
 msgid "Modified"
-msgstr ""
+msgstr "Modifié"
 
 #: templates/Planes/view.php:47 templates/Users/view.php:44
 msgid "Related Reservations"
-msgstr ""
+msgstr "Réservations reliées"
 
 #: templates/Planes/view.php:53 templates/Users/view.php:50
 msgid "User Id"
-msgstr ""
+msgstr "Id d'utilisateur"
 
 #: templates/Planes/view.php:55 templates/Reservations/view.php:31
 #: templates/Users/view.php:52
 msgid "DepCity"
-msgstr ""
+msgstr "Ville de départ"
 
 #: templates/Planes/view.php:56 templates/Reservations/view.php:35
 #: templates/Users/view.php:53
 msgid "DestCity"
-msgstr ""
+msgstr "Ville de destination"
 
 #: templates/Planes/view.php:57 templates/Reservations/view.php:39
 #: templates/Users/view.php:54
@@ -228,7 +228,7 @@ msgstr ""
 #: templates/Planes/view.php:58 templates/Reservations/view.php:60
 #: templates/Users/view.php:55
 msgid "Body"
-msgstr ""
+msgstr "Corps"
 
 #: templates/Planes/view.php:59 templates/Reservations/view.php:55
 #: templates/Users/view.php:56
@@ -238,19 +238,19 @@ msgstr ""
 #: templates/Reservations/add.php:14 templates/Reservations/edit.php:19
 #: templates/Reservations/view.php:14
 msgid "List Reservations"
-msgstr ""
+msgstr "Liste de réservations"
 
 #: templates/Reservations/add.php:21
 msgid "Add Reservation"
-msgstr ""
+msgstr "Ajouter une réservation"
 
 #: templates/Reservations/edit.php:26 templates/Reservations/view.php:12
 msgid "Edit Reservation"
-msgstr ""
+msgstr "Modifier une réservation"
 
 #: templates/Reservations/index.php:9 templates/Reservations/view.php:15
 msgid "New Reservation"
-msgstr ""
+msgstr "Nouvelle réservation"
 
 #: templates/Reservations/index.php:10
 msgid "Reservations"
@@ -258,65 +258,65 @@ msgstr ""
 
 #: templates/Reservations/view.php:13
 msgid "Delete Reservation"
-msgstr ""
+msgstr "Supprimer la réservation"
 
 #: templates/Reservations/view.php:23
 msgid "User"
-msgstr ""
+msgstr "Utilisateur"
 
 #: templates/Reservations/view.php:56
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 #: templates/Reservations/view.php:56
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: templates/Reservations/view.php:66
 msgid "Related Planes"
-msgstr ""
+msgstr "Avions reliés"
 
 #: templates/Users/add.php:11 templates/Users/edit.php:16
 #: templates/Users/view.php:14
 msgid "List Users"
-msgstr ""
+msgstr "Liste des utilisateurs"
 
 #: templates/Users/add.php:18
 msgid "Add User"
-msgstr ""
+msgstr "Ajouter un utilisateur"
 
 #: templates/Users/edit.php:23 templates/Users/view.php:12
 msgid "Edit User"
-msgstr ""
+msgstr "Modifier un utilisateur"
 
 #: templates/Users/index.php:9 templates/Users/view.php:15
 msgid "New User"
-msgstr ""
+msgstr "Nouvel utilisateur"
 
 #: templates/Users/index.php:10
 msgid "Users"
-msgstr ""
+msgstr "Utilisateurs"
 
 #: templates/Users/login.php:7
 msgid "Please enter your username and password"
-msgstr ""
+msgstr "Veuillez entrer votre nom d'utilisateur et mot de passe"
 
 #: templates/Users/login.php:11
 msgid "Login"
-msgstr ""
+msgstr "Connexion"
 
 #: templates/Users/view.php:13
 msgid "Delete User"
-msgstr ""
+msgstr "Supprimer l'utilisateur"
 
 #: templates/Users/view.php:23
 msgid "Email"
-msgstr ""
+msgstr "Courriel"
 
 #: templates/Users/view.php:27
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 #: templates/layout/error.php:38
 msgid "Back"
-msgstr ""
+msgstr "Derrière"

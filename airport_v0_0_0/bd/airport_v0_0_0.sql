@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le : mer. 14 sep. 2022 à 20:11
--- Version du serveur : 8.0.27
--- Version de PHP : 7.4.27
+-- Host: localhost
+-- Generation Time: Sep 15, 2022 at 02:34 AM
+-- Server version: 8.0.27
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `airport_v0_0_0`
+-- Database: `airport_v0_0_0`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `planes`
+-- Table structure for table `planes`
 --
 
 CREATE TABLE `planes` (
@@ -37,17 +37,17 @@ CREATE TABLE `planes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `planes`
+-- Dumping data for table `planes`
 --
 
 INSERT INTO `planes` (`id`, `title`, `seats`, `details`, `created`, `modified`) VALUES
-(3, 'Airbus A330-200 S', 4000, 'Moteurs : 3 Rolls Royce Trent 772B ||| Capacité du réservoir à carburant : 111 272 kg (245 316 lb) ||| Vitesse de croisière : 875 km/h (Mach 0,82)', '2022-09-11 17:26:03', '2022-09-11 17:26:03'),
+(3, 'Airbus A330-200 S', 23, 'Moteurs : 3 Rolls Royce Trent 772B ||| Capacité du réservoir à carburant : 111 272 kg (245 316 lb) ||| Vitesse de croisière : 875 km/h (Mach 0,82)', '2022-09-11 17:26:03', '2022-09-13 20:40:58'),
 (4, 'Airbus A330-30', 375, 'Moteurs : 2 Rolls Royce Trent 772 ||| Capacité du réservoir à carburant : 76 839 kg (169 403 lb) ||| Vitesse de croisière : 870 km/h (Mach 0,82)', '2022-09-11 17:26:25', '2022-09-11 17:26:25');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `planes_reservations`
+-- Table structure for table `planes_reservations`
 --
 
 CREATE TABLE `planes_reservations` (
@@ -56,7 +56,7 @@ CREATE TABLE `planes_reservations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `planes_reservations`
+-- Dumping data for table `planes_reservations`
 --
 
 INSERT INTO `planes_reservations` (`plane_id`, `reservation_id`) VALUES
@@ -65,7 +65,7 @@ INSERT INTO `planes_reservations` (`plane_id`, `reservation_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reservations`
+-- Table structure for table `reservations`
 --
 
 CREATE TABLE `reservations` (
@@ -82,7 +82,7 @@ CREATE TABLE `reservations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `reservations`
+-- Dumping data for table `reservations`
 --
 
 INSERT INTO `reservations` (`id`, `user_id`, `title`, `depCity`, `destCity`, `slug`, `body`, `published`, `created`, `modified`) VALUES
@@ -91,32 +91,32 @@ INSERT INTO `reservations` (`id`, `user_id`, `title`, `depCity`, `destCity`, `sl
 -- --------------------------------------------------------
 
 --
--- Structure de la table `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
   `id` int NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `description`) VALUES
-(2, 'Admin', 'Ceci est un admin\r\n'),
-(3, 'Utilisateur', 'Ceci est un utilisateur\n');
+(2, 'Utilisateur', 'Ceci est un utilisateur\n'),
+(3, 'Admin', 'Ceci est un admin\r\n');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `id` int NOT NULL,
-  `role_id` int DEFAULT '3',
+  `role_id` int DEFAULT '2',
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created` datetime DEFAULT NULL,
@@ -124,34 +124,36 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `role_id`, `email`, `password`, `created`, `modified`) VALUES
 (4, 2, 'will@will.com', '$2y$10$NW1.Bot3pOhdOfYtzUKEnuv5RH2anfXAXiK.jFjFXBaFZib/Izgrq', '2022-09-11 17:16:58', '2022-09-11 17:16:58'),
-(5, 3, 'william4800@hotmail.com', '$2y$10$HHEYO4/JNR4sFY4fBq5QIumUHMFHES9y4N7Kgkg2Q5tEgx/WJyyAC', '2022-09-14 20:02:42', '2022-09-14 20:02:42'),
-(6, 3, 'JeanPing@hotmail.com', '$2y$10$X8PMs0n0UnF0kzoCVp5iX.JGg/ZmZg2A6km8VX8d0ShBHLztAV2bO', '2022-09-14 20:08:34', '2022-09-14 20:08:34');
+(5, 3, 'will@dsadsa.com', '$2y$10$6CmT5j1CcUjWob3tN/I/Ie4y06/QyEyW6gLjVjd.3MfFFrCIJYv5e', '2022-09-13 20:06:18', '2022-09-13 20:06:18'),
+(6, 2, 'will@will.ca', '$2y$10$9W9R8y1WkcncOssjx3o0MeY/QW/5ku5mAng6S2IwiiGADCdJ78C3K', '2022-09-13 20:58:53', '2022-09-13 20:58:53'),
+(7, 2, 'will@wildsa.com', '$2y$10$Z1VDWgLMQ7hdIn4uYcO4Re30OIXK4cWAufVZabuxBsAY1ehXJLg4a', '2022-09-13 21:00:21', '2022-09-13 21:00:21'),
+(11, 2, 'mww@mww.com', '$2y$10$LO8b7tPQMFctuSvDKOC1eeJP/.00fm3UiKQu6F.kCsDA1DNuKEs3i', '2022-09-15 02:11:49', '2022-09-15 02:11:49');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `planes`
+-- Indexes for table `planes`
 --
 ALTER TABLE `planes`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `title` (`title`);
 
 --
--- Index pour la table `planes_reservations`
+-- Indexes for table `planes_reservations`
 --
 ALTER TABLE `planes_reservations`
   ADD PRIMARY KEY (`plane_id`,`reservation_id`),
   ADD KEY `reservation_id` (`reservation_id`);
 
 --
--- Index pour la table `reservations`
+-- Indexes for table `reservations`
 --
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`id`),
@@ -159,65 +161,65 @@ ALTER TABLE `reservations`
   ADD KEY `user_key` (`user_id`);
 
 --
--- Index pour la table `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `role_id` (`role_id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `planes`
+-- AUTO_INCREMENT for table `planes`
 --
 ALTER TABLE `planes`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `reservations`
+-- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT pour la table `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `planes_reservations`
+-- Constraints for table `planes_reservations`
 --
 ALTER TABLE `planes_reservations`
   ADD CONSTRAINT `planes_reservations_ibfk_1` FOREIGN KEY (`reservation_id`) REFERENCES `reservations` (`id`),
   ADD CONSTRAINT `planes_reservations_ibfk_2` FOREIGN KEY (`plane_id`) REFERENCES `planes` (`id`);
 
 --
--- Contraintes pour la table `reservations`
+-- Constraints for table `reservations`
 --
 ALTER TABLE `reservations`
   ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Contraintes pour la table `users`
+-- Constraints for table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
