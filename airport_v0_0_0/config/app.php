@@ -245,6 +245,14 @@ return [
             'tls' => false,
             'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
         ],
+        'gmail' => [
+            'host' => 'ssl://smtp.gmail.com',
+            'port' => 465,
+            'username' => 'willwebtransac@gmail.com',
+            'password' => 'xdzpkyvdjugdbavw', // Ce n'est pas votre mot de passe habituel
+            // Il faut en faire la demande à GMail : mot de passe d'applications
+            'className' => 'Smtp'
+        ]
     ],
 
     /*
@@ -258,8 +266,8 @@ return [
      */
     'Email' => [
         'default' => [
-            'transport' => 'default',
-            'from' => 'you@localhost',
+            'transport' => 'gmail',
+            'from' => 'willwebtransac@gmail.com',
             /*
              * Will by default be set to config value of App.encoding, if that exists otherwise to UTF-8.
              */

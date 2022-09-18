@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 15, 2022 at 09:16 PM
--- Server version: 8.0.30
--- PHP Version: 7.4.30
+-- Generation Time: Sep 18, 2022 at 02:34 PM
+-- Server version: 8.0.27
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,11 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `i18n` (
   `id` int NOT NULL,
-  `locale` varchar(6) COLLATE utf8mb4_general_ci NOT NULL,
-  `model` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `locale` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `model` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `foreign_key` int NOT NULL,
-  `field` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `content` text COLLATE utf8mb4_general_ci
+  `field` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -142,8 +142,10 @@ INSERT INTO `roles` (`id`, `name`, `description`) VALUES
 
 CREATE TABLE `users` (
   `id` int NOT NULL,
+  `uuid` text COLLATE utf8mb4_general_ci NOT NULL,
   `role_id` int DEFAULT '2',
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `confirmed` int NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL
@@ -153,12 +155,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `role_id`, `email`, `password`, `created`, `modified`) VALUES
-(4, 2, 'will@will.com', '$2y$10$NW1.Bot3pOhdOfYtzUKEnuv5RH2anfXAXiK.jFjFXBaFZib/Izgrq', '2022-09-11 17:16:58', '2022-09-11 17:16:58'),
-(5, 3, 'will@dsadsa.com', '$2y$10$6CmT5j1CcUjWob3tN/I/Ie4y06/QyEyW6gLjVjd.3MfFFrCIJYv5e', '2022-09-13 20:06:18', '2022-09-13 20:06:18'),
-(6, 2, 'will@will.ca', '$2y$10$9W9R8y1WkcncOssjx3o0MeY/QW/5ku5mAng6S2IwiiGADCdJ78C3K', '2022-09-13 20:58:53', '2022-09-13 20:58:53'),
-(7, 2, 'will@wildsa.com', '$2y$10$Z1VDWgLMQ7hdIn4uYcO4Re30OIXK4cWAufVZabuxBsAY1ehXJLg4a', '2022-09-13 21:00:21', '2022-09-13 21:00:21'),
-(11, 2, 'mww@mww.com', '$2y$10$LO8b7tPQMFctuSvDKOC1eeJP/.00fm3UiKQu6F.kCsDA1DNuKEs3i', '2022-09-15 02:11:49', '2022-09-15 02:11:49');
+INSERT INTO `users` (`id`, `uuid`, `role_id`, `email`, `confirmed`, `password`, `created`, `modified`) VALUES
+(4, '', 2, 'will@will.com', 0, '$2y$10$NW1.Bot3pOhdOfYtzUKEnuv5RH2anfXAXiK.jFjFXBaFZib/Izgrq', '2022-09-11 17:16:58', '2022-09-11 17:16:58'),
+(5, '', 3, 'will@dsadsa.com', 0, '$2y$10$6CmT5j1CcUjWob3tN/I/Ie4y06/QyEyW6gLjVjd.3MfFFrCIJYv5e', '2022-09-13 20:06:18', '2022-09-13 20:06:18'),
+(6, '', 2, 'will@will.ca', 0, '$2y$10$9W9R8y1WkcncOssjx3o0MeY/QW/5ku5mAng6S2IwiiGADCdJ78C3K', '2022-09-13 20:58:53', '2022-09-13 20:58:53'),
+(7, '', 2, 'will@wildsa.com', 0, '$2y$10$Z1VDWgLMQ7hdIn4uYcO4Re30OIXK4cWAufVZabuxBsAY1ehXJLg4a', '2022-09-13 21:00:21', '2022-09-13 21:00:21'),
+(11, '', 2, 'mww@mww.com', 0, '$2y$10$LO8b7tPQMFctuSvDKOC1eeJP/.00fm3UiKQu6F.kCsDA1DNuKEs3i', '2022-09-15 02:11:49', '2022-09-15 02:11:49');
 
 --
 -- Indexes for dumped tables
