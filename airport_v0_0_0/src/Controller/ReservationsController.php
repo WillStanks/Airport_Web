@@ -76,18 +76,17 @@ class ReservationsController extends AppController
             // Set the user_id from the current user.
             $reservation->user_id = $this->request->getAttribute('identity')->getIdentifier();
 
-            if(!$reservation->getErrors){
+            if (!$reservation->getErrors) {
                 $image = $this->request->getData('image_file');
 
                 $name = $image->getClientFileName();
 
                 $targetPath = WWW_ROOT . 'img' . DS . 'reservations' . DS . $name;
 
-                if($name)
+                if ($name)
                     $image->moveTo($targetPath);
-                
+
                 $reservation->image = $name;
-                
             }
 
             if ($this->Reservations->save($reservation)) {
@@ -121,6 +120,19 @@ class ReservationsController extends AppController
                 // Added: Disable modification of user_id.
                 'accessibleFields' => ['user_id' => false]
             ]);
+
+            if (!$reservation->getErrors) {
+                $image = $this->request->getData('image_file');
+
+                $name = $image->getClientFileName();
+
+                $targetPath = WWW_ROOT . 'img' . DS . 'reservations' . DS . $name;
+
+                if ($name)
+                    $image->moveTo($targetPath);
+
+                $reservation->image = $name;
+            }
             if ($this->Reservations->save($reservation)) {
                 $this->Flash->success(__('The reservation has been saved.'));
 

@@ -24,8 +24,8 @@
                     <td><?= h($user->email) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Password') ?></th>
-                    <td><?= h($user->password) ?></td>
+                    <th><?= __('UUID') ?></th>
+                    <td><?= h($user->uuid) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Id') ?></th>

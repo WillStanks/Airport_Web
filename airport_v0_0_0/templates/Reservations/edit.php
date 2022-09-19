@@ -31,6 +31,8 @@
                 echo $this->Form->control('destCity');
                 // echo $this->Form->control('slug');
                 echo $this->Form->control('body');
+                echo @$this->Html->image('reservations/' . $reservation->image, ['style' => 'max_width:50px;height:50px;border-radius:40%;']);
+                echo $this->Form->control('Image', ['type' => 'file']);
                 echo $this->Form->control('published');
                 echo $this->Form->control('planes._ids', ['options' => $planes]);
                 ?>

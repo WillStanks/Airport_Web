@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 18, 2022 at 02:34 PM
+-- Generation Time: Sep 19, 2022 at 02:08 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.27
 
@@ -142,10 +142,10 @@ INSERT INTO `roles` (`id`, `name`, `description`) VALUES
 
 CREATE TABLE `users` (
   `id` int NOT NULL,
-  `uuid` text COLLATE utf8mb4_general_ci NOT NULL,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `role_id` int DEFAULT '2',
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `confirmed` int NOT NULL,
+  `confirmed` tinyint NOT NULL DEFAULT '0',
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL
@@ -160,7 +160,8 @@ INSERT INTO `users` (`id`, `uuid`, `role_id`, `email`, `confirmed`, `password`, 
 (5, '', 3, 'will@dsadsa.com', 0, '$2y$10$6CmT5j1CcUjWob3tN/I/Ie4y06/QyEyW6gLjVjd.3MfFFrCIJYv5e', '2022-09-13 20:06:18', '2022-09-13 20:06:18'),
 (6, '', 2, 'will@will.ca', 0, '$2y$10$9W9R8y1WkcncOssjx3o0MeY/QW/5ku5mAng6S2IwiiGADCdJ78C3K', '2022-09-13 20:58:53', '2022-09-13 20:58:53'),
 (7, '', 2, 'will@wildsa.com', 0, '$2y$10$Z1VDWgLMQ7hdIn4uYcO4Re30OIXK4cWAufVZabuxBsAY1ehXJLg4a', '2022-09-13 21:00:21', '2022-09-13 21:00:21'),
-(11, '', 2, 'mww@mww.com', 0, '$2y$10$LO8b7tPQMFctuSvDKOC1eeJP/.00fm3UiKQu6F.kCsDA1DNuKEs3i', '2022-09-15 02:11:49', '2022-09-15 02:11:49');
+(11, '', 2, 'mww@mww.com', 0, '$2y$10$LO8b7tPQMFctuSvDKOC1eeJP/.00fm3UiKQu6F.kCsDA1DNuKEs3i', '2022-09-15 02:11:49', '2022-09-15 02:11:49'),
+(12, '3e9c6a24-9125-43a5-88a1-ebe0bd10073e', 2, 'william4800@hotmail.com', 1, '$2y$10$vWfpSdjEiIvyKJSQEnuQjOuNi4V6OUp2fEYvjIOxp5HKQu4gItaNu', '2022-09-19 02:03:54', '2022-09-19 02:06:48');
 
 --
 -- Indexes for dumped tables
@@ -207,7 +208,8 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `role_id` (`role_id`);
+  ADD KEY `role_id` (`role_id`),
+  ADD KEY `uuid` (`uuid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -241,7 +243,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables

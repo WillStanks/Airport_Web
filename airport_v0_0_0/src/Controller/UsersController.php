@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Mailer\Mailer;
+use Cake\Utility\Text;
+
 /**
  * Users Controller
  *
@@ -18,7 +21,7 @@ class UsersController extends AppController
         parent::beforeFilter($event);
         // Configure the login action to not require authentication, preventing
         // the infinite redirect loop issue
-        $this->Authentication->addUnauthenticatedActions(['login', 'add']);
+        $this->Authentication->addUnauthenticatedActions(['index', 'login', 'add']);
     }
 
     public function login()
@@ -53,6 +56,26 @@ class UsersController extends AppController
         }
     }
 
+    public function sendConfirmEmail($user)
+    {
+        $this->Authorization->skipAuthorization();
+        $email = new Mailer('default');
+        $email->setTo($user->email)
+            ->setSubject(__('Confirm your email'))
+            ->deliver('http://' . $_SERVER['HTTP_HOST'] . $this->request->getAttribute('webroot') . "users/confirm/" . $user->uuid);
+    }
+
+    public function confirm($uuid)
+    {
+        $this->Authorization->skipAuthorization();
+        $user = $this->Users->findByUuid($uuid)->firstOrFail();
+        $user->confirmed = 1;
+        if ($this->Users->save($user)) {
+            $this->Flash->success(__('Thank you') . '. ' . __('Your email has been confirmed'));
+            return $this->redirect(['controller' => 'Reservations', 'action' => 'index']);
+        }
+        $this->Flash->error(__('The confirmation could not be saved. Please, try again.'));
+    }
 
     /**
      * Index method
@@ -61,6 +84,7 @@ class UsersController extends AppController
      */
     public function index()
     {
+        $this->Authorization->skipAuthorization();
         $this->paginate = [
             'contain' => ['Roles'],
         ];
@@ -97,8 +121,13 @@ class UsersController extends AppController
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
+
+            $user->uuid = Text::uuid();
+
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
+
+                $this->sendConfirmEmail($user);
 
                 return $this->redirect(['action' => 'index']);
             }
