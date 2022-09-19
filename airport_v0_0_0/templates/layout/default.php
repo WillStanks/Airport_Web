@@ -46,14 +46,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="top-nav-links">
             <?php
             if (isset($LoggedUser)) {
-                echo $this->Html->link('Logout ', ['controller' => 'Users', 'action' => 'logoute']);
+                echo $this->Html->link('Logout ', ['controller' => 'Users', 'action' => 'logout']);
                 echo $this->Html->link($LoggedUser->email, ['controller' => 'Users', 'action' => 'view', $LoggedUser->id]);
             } else {
                 echo $this->Html->link('Login', ['controller' => 'Users', 'action' => 'logine']);
             }
             echo $this->Html->link('Français', ['action' => 'changeLang', 'fr_CA'], ['escape' => false]);
             echo $this->Html->link('English', ['action' => 'changeLang', 'en_US'], ['escape' => false]);
-
+            echo $this->Html->link('Română', ['action' => 'changeLang', 'ro_RO'], ['escape' => false]);
+            echo $this->Html->link(__('À propos'), ['controller' => 'App', 'action' => 'aPropos'], ['escape' => false]);
             ?>
         </div>
     </nav>

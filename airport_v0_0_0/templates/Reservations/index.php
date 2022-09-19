@@ -12,32 +12,20 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('user_id') ?></th>
                     <th><?= $this->Paginator->sort('title') ?></th>
                     <th><?= $this->Paginator->sort('depCity') ?></th>
                     <th><?= $this->Paginator->sort('destCity') ?></th>
                     <th><?= $this->Paginator->sort('image') ?></th>
-                    <th><?= $this->Paginator->sort('slug') ?></th>
-                    <th><?= $this->Paginator->sort('published') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($reservations as $reservation) : ?>
                     <tr>
-                        <td><?= $this->Number->format($reservation->id) ?></td>
-                        <td><?= $reservation->has('user') ? $this->Html->link($reservation->user->id, ['controller' => 'Users', 'action' => 'view', $reservation->user->id]) : '' ?></td>
                         <td><?= h($reservation->title) ?></td>
                         <td><?= h($reservation->depCity) ?></td>
                         <td><?= h($reservation->destCity) ?></td>
-                        <td><?= @$this->Html->image('reservations/' . $reservation->image, ['style' => 'max_width:70px;height:50px;border-radius:50%;']) ?></td>
-                        <td><?= h($reservation->slug) ?></td>
-                        <td><?= h($reservation->published) ?></td>
-                        <td><?= h($reservation->created) ?></td>
-                        <td><?= h($reservation->modified) ?></td>
+                        <td><?= @$this->Html->image('reservations/' . $reservation->image, ['style' => 'max_width:50px;height:50px;border-radius:50%;']) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $reservation->slug]) ?>
                             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $reservation->slug]) ?>

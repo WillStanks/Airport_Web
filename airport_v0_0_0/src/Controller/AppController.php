@@ -46,10 +46,10 @@ class AppController extends Controller
         if ($this->request->getSession()->check('Config.language')) {
             I18n::setLocale($this->request->getSession()->read('Config.language'));
         }
-        
+
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        
+
         $this->loadComponent('Authentication.Authentication');
         $this->loadComponent('Authorization.Authorization');
         $this->Authentication->addUnauthenticatedActions(['index', 'view', 'changeLang']);
@@ -83,5 +83,11 @@ class AppController extends Controller
         I18n::setLocale($lang);
         $this->request->getSession()->write('Config.language', $lang);
         return $this->redirect($this->request->referer());
+    }
+
+    public function aPropos()
+    {
+        $this->Authorization->skipAuthorization();
+        $this->redirect($this->aPropos());
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 19, 2022 at 02:08 AM
+-- Generation Time: Sep 19, 2022 at 08:58 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.27
 
@@ -35,14 +35,6 @@ CREATE TABLE `i18n` (
   `field` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `i18n`
---
-
-INSERT INTO `i18n` (`id`, `locale`, `model`, `foreign_key`, `field`, `content`) VALUES
-(1, 'en_US', 'Reservations', 10, 'title', 'Trip to COSTA-RICA'),
-(2, 'en_US', 'Reservations', 10, 'body', 'A little trip to Costa-Rica');
 
 -- --------------------------------------------------------
 
@@ -83,8 +75,8 @@ CREATE TABLE `planes_reservations` (
 --
 
 INSERT INTO `planes_reservations` (`plane_id`, `reservation_id`) VALUES
-(3, 10),
-(4, 11);
+(4, 11),
+(4, 12);
 
 -- --------------------------------------------------------
 
@@ -111,8 +103,8 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`id`, `user_id`, `title`, `depCity`, `destCity`, `slug`, `body`, `image`, `published`, `created`, `modified`) VALUES
-(10, 4, 'Voyage COSTA-RICA', 'Mtl', 'SanJose', 'Voyage-COSTA-RICA', 'Un petit voyage au Costa-Rica', NULL, 0, '2022-09-11 17:26:58', '2022-09-15 15:26:28'),
-(11, 4, 'Voyage Mexique', 'MTL', 'Mexico', 'Voyage-Mexique', 'Voyage au Mexique', 'mexique.jpg', 0, '2022-09-15 21:15:17', '2022-09-15 21:15:17');
+(11, 4, 'Voyage Mexique', 'MTL', 'Mexico', 'Voyage-Mexique', 'Voyage au Mexique', 'mexique.jpg', 0, '2022-09-15 21:15:17', '2022-09-15 21:15:17'),
+(12, 12, 'Voyage au Costa-Rica', 'MTL', 'SAN-JOSE', 'Voyage-au-Costa-Rica', 'Petit voyage au costa rica en backpack', 'discord.jpg', 0, '2022-09-19 20:36:12', '2022-09-19 20:36:12');
 
 -- --------------------------------------------------------
 
@@ -157,10 +149,6 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `uuid`, `role_id`, `email`, `confirmed`, `password`, `created`, `modified`) VALUES
 (4, '', 2, 'will@will.com', 0, '$2y$10$NW1.Bot3pOhdOfYtzUKEnuv5RH2anfXAXiK.jFjFXBaFZib/Izgrq', '2022-09-11 17:16:58', '2022-09-11 17:16:58'),
-(5, '', 3, 'will@dsadsa.com', 0, '$2y$10$6CmT5j1CcUjWob3tN/I/Ie4y06/QyEyW6gLjVjd.3MfFFrCIJYv5e', '2022-09-13 20:06:18', '2022-09-13 20:06:18'),
-(6, '', 2, 'will@will.ca', 0, '$2y$10$9W9R8y1WkcncOssjx3o0MeY/QW/5ku5mAng6S2IwiiGADCdJ78C3K', '2022-09-13 20:58:53', '2022-09-13 20:58:53'),
-(7, '', 2, 'will@wildsa.com', 0, '$2y$10$Z1VDWgLMQ7hdIn4uYcO4Re30OIXK4cWAufVZabuxBsAY1ehXJLg4a', '2022-09-13 21:00:21', '2022-09-13 21:00:21'),
-(11, '', 2, 'mww@mww.com', 0, '$2y$10$LO8b7tPQMFctuSvDKOC1eeJP/.00fm3UiKQu6F.kCsDA1DNuKEs3i', '2022-09-15 02:11:49', '2022-09-15 02:11:49'),
 (12, '3e9c6a24-9125-43a5-88a1-ebe0bd10073e', 2, 'william4800@hotmail.com', 1, '$2y$10$vWfpSdjEiIvyKJSQEnuQjOuNi4V6OUp2fEYvjIOxp5HKQu4gItaNu', '2022-09-19 02:03:54', '2022-09-19 02:06:48');
 
 --
@@ -231,7 +219,7 @@ ALTER TABLE `planes`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `roles`
