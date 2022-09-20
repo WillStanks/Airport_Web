@@ -27,7 +27,6 @@
                 // echo $this->Form->control('slug');
                 echo $this->Form->control('body');
                 echo $this->Form->control('image_file', ['type' => 'file']);
-                echo $this->Form->control('published');
                 echo $this->Form->control('planes._ids', ['options' => $planes]);
                 ?>
             </fieldset>

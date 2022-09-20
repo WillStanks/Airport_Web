@@ -232,7 +232,7 @@ msgstr "Corps"
 
 #: templates/Planes/view.php:59 templates/Reservations/view.php:55
 #: templates/Users/view.php:56
-msgid "Published"
+msgid "Escale"
 msgstr ""
 
 #: templates/Reservations/add.php:14 templates/Reservations/edit.php:19

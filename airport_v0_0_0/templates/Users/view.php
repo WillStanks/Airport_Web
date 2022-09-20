@@ -53,7 +53,7 @@
                                 <th><?= __('DestCity') ?></th>
                                 <th><?= __('Slug') ?></th>
                                 <th><?= __('Body') ?></th>
-                                <th><?= __('Published') ?></th>
+                                <th><?= __('Escale') ?></th>
                                 <th><?= __('Created') ?></th>
                                 <th><?= __('Modified') ?></th>
                                 <th class="actions"><?= __('Actions') ?></th>
@@ -67,7 +67,7 @@
                                     <td><?= h($reservations->destCity) ?></td>
                                     <td><?= h($reservations->slug) ?></td>
                                     <td><?= h($reservations->body) ?></td>
-                                    <td><?= h($reservations->published) ?></td>
+                                    <td><?= h($reservations->escale) ?></td>
                                     <td><?= h($reservations->created) ?></td>
                                     <td><?= h($reservations->modified) ?></td>
                                     <td class="actions">

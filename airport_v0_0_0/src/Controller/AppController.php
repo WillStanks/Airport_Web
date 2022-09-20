@@ -84,10 +84,4 @@ class AppController extends Controller
         $this->request->getSession()->write('Config.language', $lang);
         return $this->redirect($this->request->referer());
     }
-
-    public function aPropos()
-    {
-        $this->Authorization->skipAuthorization();
-        $this->redirect($this->aPropos());
-    }
 }

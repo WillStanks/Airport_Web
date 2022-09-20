@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Reservation $reservation
@@ -51,8 +52,8 @@
                     <td><?= h($reservation->modified) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Published') ?></th>
-                    <td><?= $reservation->published ? __('Yes') : __('No'); ?></td>
+                    <th><?= __('Escale') ?></th>
+                    <td><?= $reservation->escale ? __('Yes') : __('No'); ?></td>
                 </tr>
             </table>
             <div class="text">
@@ -64,34 +65,34 @@
             <div class="related">
                 <h4><?= __('Related Planes') ?></h4>
                 <?php if (!empty($reservation->planes)) : ?>
-                <div class="table-responsive">
-                    <table>
-                        <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Title') ?></th>
-                            <th><?= __('Seats') ?></th>
-                            <th><?= __('Details') ?></th>
-                            <th><?= __('Created') ?></th>
-                            <th><?= __('Modified') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                        </tr>
-                        <?php foreach ($reservation->planes as $planes) : ?>
-                        <tr>
-                            <td><?= h($planes->id) ?></td>
-                            <td><?= h($planes->title) ?></td>
-                            <td><?= h($planes->seats) ?></td>
-                            <td><?= h($planes->details) ?></td>
-                            <td><?= h($planes->created) ?></td>
-                            <td><?= h($planes->modified) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Planes', 'action' => 'view', $planes->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Planes', 'action' => 'edit', $planes->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Planes', 'action' => 'delete', $planes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $planes->id)]) ?>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </table>
-                </div>
+                    <div class="table-responsive">
+                        <table>
+                            <tr>
+                                <th><?= __('Id') ?></th>
+                                <th><?= __('Title') ?></th>
+                                <th><?= __('Seats') ?></th>
+                                <th><?= __('Details') ?></th>
+                                <th><?= __('Created') ?></th>
+                                <th><?= __('Modified') ?></th>
+                                <th class="actions"><?= __('Actions') ?></th>
+                            </tr>
+                            <?php foreach ($reservation->planes as $planes) : ?>
+                                <tr>
+                                    <td><?= h($planes->id) ?></td>
+                                    <td><?= h($planes->title) ?></td>
+                                    <td><?= h($planes->seats) ?></td>
+                                    <td><?= h($planes->details) ?></td>
+                                    <td><?= h($planes->created) ?></td>
+                                    <td><?= h($planes->modified) ?></td>
+                                    <td class="actions">
+                                        <?= $this->Html->link(__('View'), ['controller' => 'Planes', 'action' => 'view', $planes->id]) ?>
+                                        <?= $this->Html->link(__('Edit'), ['controller' => 'Planes', 'action' => 'edit', $planes->id]) ?>
+                                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Planes', 'action' => 'delete', $planes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $planes->id)]) ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </table>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -102,8 +103,8 @@ class ReservationsTable extends Table
             ->allowEmptyString('body');
 
         $validator
-            ->boolean('published')
-            ->allowEmptyString('published');
+            ->boolean('escale')
+            ->allowEmptyString('escale');
 
         return $validator;
     }

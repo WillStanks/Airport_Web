@@ -16,7 +16,7 @@ use Cake\ORM\Entity;
  * @property string $destCity
  * @property string $slug
  * @property string|null $body
- * @property bool|null $published
+ * @property bool|null $escale
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
  *
@@ -41,7 +41,7 @@ class Reservation extends Entity
         'destCity' => true,
         //        'slug' => true,
         'body' => true,
-        'published' => true,
+        'escale' => true,
         //        'created' => true,
         //        'modified' => true,
         //        'user' => true,

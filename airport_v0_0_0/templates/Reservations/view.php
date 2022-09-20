@@ -52,8 +52,8 @@
                     <td><?= h($reservation->modified) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Published') ?></th>
-                    <td><?= $reservation->published ? __('Yes') : __('No'); ?></td>
+                    <th><?= __('Escale') ?></th>
+                    <td><?= $reservation->escale ? __('Yes') : __('No'); ?></td>
                 </tr>
             </table>
             <div class="text">

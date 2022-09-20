@@ -126,12 +126,14 @@ class ReservationsController extends AppController
 
                 $name = $image->getClientFileName();
 
-                $targetPath = WWW_ROOT . 'img' . DS . 'reservations' . DS . $name;
+                if ($name != "") { // Verifie si il y a deja une image.
+                    $targetPath = WWW_ROOT . 'img' . DS . 'reservations' . DS . $name;
 
-                if ($name)
-                    $image->moveTo($targetPath);
+                    if ($name)
+                        $image->moveTo($targetPath);
 
-                $reservation->image = $name;
+                    $reservation->image = $name;
+                }
             }
             if ($this->Reservations->save($reservation)) {
                 $this->Flash->success(__('The reservation has been saved.'));

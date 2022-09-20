@@ -21,7 +21,7 @@
     </aside>
     <div class="column-responsive column-80">
         <div class="reservations form content">
-            <?= $this->Form->create($reservation) ?>
+            <?= $this->Form->create($reservation, ['type' => 'file']) ?>
             <fieldset>
                 <legend><?= __('Edit Reservation') ?></legend>
                 <?php
@@ -32,8 +32,8 @@
                 // echo $this->Form->control('slug');
                 echo $this->Form->control('body');
                 echo @$this->Html->image('reservations/' . $reservation->image, ['style' => 'max_width:50px;height:50px;border-radius:40%;']);
-                echo $this->Form->control('Image', ['type' => 'file']);
-                echo $this->Form->control('published');
+                echo $this->Form->control('image_file', ['type' => 'file']);
+                echo $this->Form->control('escale');
                 echo $this->Form->control('planes._ids', ['options' => $planes]);
                 ?>
             </fieldset>
