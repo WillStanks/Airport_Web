@@ -12,6 +12,13 @@ namespace App\Controller;
  */
 class PlanesController extends AppController
 {
+
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->Authorization->skipAuthorization();
+    }
+
     /**
      * Index method
      *

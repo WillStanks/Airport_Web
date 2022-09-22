@@ -35,7 +35,11 @@ class ReservationPolicy
     public function canEdit(IdentityInterface $user, Reservation $reservation)
     {
         // logged in users can edit their own reservations.
-        return $this->isAuthor($user, $reservation);
+        if ($user->confirmed == 0) {
+            return False;
+        } else {
+            return $this->isAuthor($user, $reservation);
+        }
     }
 
     /**

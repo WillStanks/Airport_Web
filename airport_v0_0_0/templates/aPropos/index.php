@@ -18,4 +18,7 @@
     la modification et l'effacement est réservé à l'utilisateur qui l'a créée.
 </p>
 
+<h3>Diagramme de la base de donnée</h3>
+<img src="webroot/img/diagrammeBD.png">
+
 </html>

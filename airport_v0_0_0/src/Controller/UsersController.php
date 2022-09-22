@@ -56,6 +56,16 @@ class UsersController extends AppController
         }
     }
 
+    public function reSendConfirmEmail($id)
+    {
+        $this->Authorization->skipAuthorization();
+        $user = $this->Users->get($id);
+        $email = new Mailer('default');
+        $email->setTo($user->email)
+            ->setSubject(__('Confirm your email'))
+            ->deliver('http://' . $_SERVER['HTTP_HOST'] . $this->request->getAttribute('webroot') . "users/confirm/" . $user->uuid);
+    }
+
     public function sendConfirmEmail($user)
     {
         $this->Authorization->skipAuthorization();
@@ -106,6 +116,7 @@ class UsersController extends AppController
         $user = $this->Users->get($id, [
             'contain' => ['Reservations'],
         ]);
+        
 
         $this->set(compact('user'));
     }
@@ -158,7 +169,6 @@ class UsersController extends AppController
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
-            
         }
         $roles = $this->Users->Roles->find('list', ['limit' => 200])->all();
         $this->set(compact('user', 'roles'));

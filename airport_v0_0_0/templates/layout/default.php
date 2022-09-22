@@ -46,6 +46,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="top-nav-links">
             <?php
             if (isset($LoggedUser)) {
+                if (!($LoggedUser->confirmed)) {
+                    echo $this->Html->link('Confirmer le email', ['controller' => 'Users', 'action' => 'sendConfirmEmail', $LoggedUser->id]);
+                }
                 echo $this->Html->link('Logout ', ['controller' => 'Users', 'action' => 'logout']);
                 echo $this->Html->link($LoggedUser->email, ['controller' => 'Users', 'action' => 'view', $LoggedUser->id]);
             } else {
@@ -58,7 +61,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             ?>
         </div>
     </nav>
-    
+
     <main class="main">
         <div class="container">
             <?= $this->Flash->render() ?>
