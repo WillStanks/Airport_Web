@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 22 sep. 2022 à 16:02
+-- Généré le : mer. 05 oct. 2022 à 15:35
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.27
 
@@ -20,6 +20,52 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `airport_v0_2_0`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cities`
+--
+
+CREATE TABLE `cities` (
+  `id` int NOT NULL,
+  `province_id` int NOT NULL,
+  `city` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `cities`
+--
+
+INSERT INTO `cities` (`id`, `province_id`, `city`) VALUES
+(1, 1, 'Montréal'),
+(2, 1, 'Beloeil'),
+(3, 1, 'St-Hubert'),
+(4, 2, 'Calgary'),
+(5, 2, 'Edmonton'),
+(6, 4, 'Fort Lauderdale'),
+(7, 4, 'Miami'),
+(8, 5, 'Los Angeles'),
+(9, 5, 'Long Beach');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `countries`
+--
+
+CREATE TABLE `countries` (
+  `id` int NOT NULL,
+  `country` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `countries`
+--
+
+INSERT INTO `countries` (`id`, `country`) VALUES
+(1, 'Canada'),
+(2, 'États-Unis');
 
 -- --------------------------------------------------------
 
@@ -79,14 +125,28 @@ CREATE TABLE `planes_reservations` (
   `reservation_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Déchargement des données de la table `planes_reservations`
+-- Structure de la table `provinces_states`
 --
 
-INSERT INTO `planes_reservations` (`plane_id`, `reservation_id`) VALUES
-(3, 11),
-(4, 11),
-(3, 12);
+CREATE TABLE `provinces_states` (
+  `id` int NOT NULL,
+  `country_id` int NOT NULL,
+  `province_states` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `provinces_states`
+--
+
+INSERT INTO `provinces_states` (`id`, `country_id`, `province_states`) VALUES
+(1, 1, 'Québec'),
+(2, 1, 'Alberta'),
+(3, 1, 'Colombie-Britannique '),
+(4, 2, 'Floride'),
+(5, 2, 'Californie');
 
 -- --------------------------------------------------------
 
@@ -98,8 +158,8 @@ CREATE TABLE `reservations` (
   `id` int NOT NULL,
   `user_id` int NOT NULL,
   `title` varchar(255) NOT NULL,
-  `depCity` varchar(255) NOT NULL,
-  `destCity` varchar(255) NOT NULL,
+  `depCity_id` int NOT NULL,
+  `destCity_id` int NOT NULL,
   `slug` varchar(191) NOT NULL,
   `body` text,
   `image` varchar(255) DEFAULT NULL,
@@ -107,14 +167,6 @@ CREATE TABLE `reservations` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `reservations`
---
-
-INSERT INTO `reservations` (`id`, `user_id`, `title`, `depCity`, `destCity`, `slug`, `body`, `image`, `escale`, `created`, `modified`) VALUES
-(11, 4, 'Voyage Mexique', 'MTL', 'Mexico', 'Voyage-Mexique', 'Voyage au Mexique', 'mexique.jpg', 0, '2022-09-15 21:15:17', '2022-09-22 15:00:08'),
-(12, 12, 'Voyage au Costa-Rica', 'MTL', 'SAN-JOSE', 'Voyage-au-Costa-Rica', 'Petit voyage au costa rica en backpack', 'drapeauCosta.png', 1, '2022-09-19 20:36:12', '2022-09-22 15:40:21');
 
 -- --------------------------------------------------------
 
@@ -167,6 +219,19 @@ INSERT INTO `users` (`id`, `uuid`, `role_id`, `email`, `confirmed`, `password`, 
 --
 
 --
+-- Index pour la table `cities`
+--
+ALTER TABLE `cities`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `airport_province_id` (`province_id`);
+
+--
+-- Index pour la table `countries`
+--
+ALTER TABLE `countries`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `i18n`
 --
 ALTER TABLE `i18n`
@@ -189,12 +254,21 @@ ALTER TABLE `planes_reservations`
   ADD KEY `reservation_id` (`reservation_id`);
 
 --
+-- Index pour la table `provinces_states`
+--
+ALTER TABLE `provinces_states`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `airport_country_id` (`country_id`);
+
+--
 -- Index pour la table `reservations`
 --
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `slug` (`slug`),
-  ADD KEY `user_key` (`user_id`);
+  ADD KEY `user_key` (`user_id`),
+  ADD KEY `depCity_id` (`depCity_id`),
+  ADD KEY `destCity_id` (`destCity_id`);
 
 --
 -- Index pour la table `roles`
@@ -215,6 +289,18 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT pour la table `cities`
+--
+ALTER TABLE `cities`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT pour la table `countries`
+--
+ALTER TABLE `countries`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT pour la table `i18n`
 --
 ALTER TABLE `i18n`
@@ -225,6 +311,12 @@ ALTER TABLE `i18n`
 --
 ALTER TABLE `planes`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `provinces_states`
+--
+ALTER TABLE `provinces_states`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `reservations`
@@ -249,6 +341,12 @@ ALTER TABLE `users`
 --
 
 --
+-- Contraintes pour la table `cities`
+--
+ALTER TABLE `cities`
+  ADD CONSTRAINT `cities_ibfk_1` FOREIGN KEY (`province_id`) REFERENCES `provinces_states` (`id`);
+
+--
 -- Contraintes pour la table `planes_reservations`
 --
 ALTER TABLE `planes_reservations`
@@ -256,10 +354,18 @@ ALTER TABLE `planes_reservations`
   ADD CONSTRAINT `planes_reservations_ibfk_2` FOREIGN KEY (`plane_id`) REFERENCES `planes` (`id`);
 
 --
+-- Contraintes pour la table `provinces_states`
+--
+ALTER TABLE `provinces_states`
+  ADD CONSTRAINT `provinces_states_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `countries` (`id`);
+
+--
 -- Contraintes pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`depCity_id`) REFERENCES `cities` (`id`),
+  ADD CONSTRAINT `reservations_ibfk_3` FOREIGN KEY (`destCity_id`) REFERENCES `cities` (`id`);
 
 --
 -- Contraintes pour la table `users`

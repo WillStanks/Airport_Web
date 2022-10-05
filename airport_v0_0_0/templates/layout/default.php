@@ -31,11 +31,20 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
 
-    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake']) ?>
+    <?= $this->Html->css(['normalize.min', 'milligram.min', 'cake', 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <?php
+    echo $this->Html->script(
+        [
+            'https://code.jquery.com/jquery-1.12.4.js',
+            'https://code.jquery.com/ui/1.12.1/jquery-ui.js'
+        ],
+        ['block' => 'scriptLibraries']
+    );
+    ?>
 </head>
 
 <body>
@@ -70,6 +79,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </main>
     <footer>
     </footer>
+    <?= $this->fetch('scriptLibraries') ?>
+    <?= $this->fetch('script'); ?>
+    <?= $this->fetch('scriptBottom') ?>
 </body>
 
 </html>
