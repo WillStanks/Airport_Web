@@ -23,8 +23,8 @@
                 <?php foreach ($reservations as $reservation) : ?>
                     <tr>
                         <td><?= h($reservation->title) ?></td>
-                        <td><?= h($reservation->depCity) ?></td>
-                        <td><?= h($reservation->destCity) ?></td>
+                        <td><?= h($reservation->dep_city->city) ?></td>
+                        <td><?= h($reservation->dest_city->city) ?></td>
                         <td><?= @$this->Html->image('reservations/' . $reservation->image, ['style' => 'max_width:50px;height:50px;border-radius:50%;']) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $reservation->slug]) ?>
@@ -35,15 +35,5 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-    </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
     </div>
 </div>

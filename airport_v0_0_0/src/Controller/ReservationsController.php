@@ -23,11 +23,19 @@ class ReservationsController extends AppController
     public function index()
     {
         $this->Authorization->skipAuthorization();
-        $this->paginate = [
+        /*        $this->paginate = [
             'contain' => ['Users'],
+            'contain' => ['depCities'],
+            'contain' => ['destCities'],
         ];
-        $reservations = $this->paginate($this->Reservations);
 
+
+
+       $reservations = $this->paginate($this->Reservations);
+*/
+        $reservations = $this->Reservations->find('all', [
+            'contain' => ['Users', 'DestCities', 'DepCities']
+        ]);
         $this->set(compact('reservations'));
     }
 
@@ -41,11 +49,8 @@ class ReservationsController extends AppController
     public function view($slug = null)
     {
         $this->Authorization->skipAuthorization();
-        $reservation = $this->Reservations->findBySlug($slug)->contain('Users')->contain('Planes')->firstOrFail();
+        $reservation = $this->Reservations->findBySlug($slug)->contain('Users')->contain('Planes')->contain('DepCities')->contain('DestCities')->firstOrFail();
 
-        /*        $reservation = $this->Reservations->get($id, [
-            'contain' => ['Users', 'Planes'],
-        ]);*/
         $this->set(compact('reservation'));
     }
 
@@ -98,7 +103,9 @@ class ReservationsController extends AppController
         }
         // $users = $this->Reservations->Users->find('list', ['limit' => 200])->all();
         $planes = $this->Reservations->Planes->find('list', ['limit' => 200])->all();
-        $this->set(compact('reservation', 'planes'));
+        $depCities = $this->Reservations->DepCities->find('list', ['limit' => 200])->all();
+        $destCities = $this->Reservations->DestCities->find('list', ['limit' => 200])->all();
+        $this->set(compact('reservation', 'planes', 'depCities', 'destCities'));
     }
 
     /**
@@ -110,7 +117,7 @@ class ReservationsController extends AppController
      */
     public function edit($slug = null)
     {
-        $reservation = $this->Reservations->findBySlug($slug)->contain('Users')->contain('Planes')->firstOrFail();
+        $reservation = $this->Reservations->findBySlug($slug)->contain('Users')->contain('Planes')->contain('DepCities')->contain('DestCities')->firstOrFail();
         $this->Authorization->authorize($reservation);
         /*       $reservation = $this->Reservations->get($id, [
             'contain' => ['Planes'],
@@ -144,7 +151,9 @@ class ReservationsController extends AppController
         }
         $users = $this->Reservations->Users->find('list', ['limit' => 200])->all();
         $planes = $this->Reservations->Planes->find('list', ['limit' => 200])->all();
-        $this->set(compact('reservation', 'users', 'planes'));
+        $depCities = $this->Reservations->DepCities->find('list', ['limit' => 200])->all();
+        $destCities = $this->Reservations->DestCities->find('list', ['limit' => 200])->all();
+        $this->set(compact('reservation', 'users', 'planes', 'depCities', 'destCities'));
     }
 
     /**

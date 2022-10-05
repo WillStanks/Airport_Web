@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
@@ -11,6 +12,26 @@ namespace App\Controller;
  */
 class CitiesController extends AppController
 {
+
+    public function findCities()
+    {
+        $this->Authorization->skipAuthorization();
+        if ($this->request->is('ajax')) {
+
+            $this->autoRender = false;
+            $name = $this->request->getQuery('term');
+            $results = $this->Cities->find('all', array(
+                'conditions' => array('Cities.city LIKE ' => '%' . $name . '%')
+            ));
+            //debug($results); exit;
+            $resultArr = array();
+            foreach ($results as $result) {
+                $resultArr[] = array('label' => $result['city'], 'value' => $result['id']);
+            }
+            echo json_encode($resultArr);
+        }
+    }
+
     /**
      * Index method
      *
@@ -18,6 +39,7 @@ class CitiesController extends AppController
      */
     public function index()
     {
+        $this->Authorization->skipAuthorization();
         $this->paginate = [
             'contain' => ['ProvincesStates'],
         ];
@@ -49,6 +71,7 @@ class CitiesController extends AppController
      */
     public function add()
     {
+        $this->Authorization->skipAuthorization();
         $city = $this->Cities->newEmptyEntity();
         if ($this->request->is('post')) {
             $city = $this->Cities->patchEntity($city, $this->request->getData());
@@ -60,7 +83,8 @@ class CitiesController extends AppController
             $this->Flash->error(__('The city could not be saved. Please, try again.'));
         }
         $provincesStates = $this->Cities->ProvincesStates->find('list', ['limit' => 200])->all();
-        $this->set(compact('city', 'provincesStates'));
+        $countries = $this->Cities->ProvincesStates->Countries->find('list', ['limit' => 200]);
+        $this->set(compact('city', 'provincesStates', 'countries'));
     }
 
     /**

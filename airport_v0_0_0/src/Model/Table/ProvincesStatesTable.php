@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -40,12 +41,15 @@ class ProvincesStatesTable extends Table
         parent::initialize($config);
 
         $this->setTable('provinces_states');
-        $this->setDisplayField('id');
+        $this->setDisplayField('province_states');
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Countries', [
             'foreignKey' => 'country_id',
             'joinType' => 'INNER',
+        ]);
+        $this->hasMany('Cities', [
+            'foreignKey' => 'province_id',
         ]);
     }
 

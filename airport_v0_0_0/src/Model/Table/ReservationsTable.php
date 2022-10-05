@@ -58,6 +58,16 @@ class ReservationsTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',
         ]);
+        $this->belongsTo('DepCities', [
+            'className' => 'Cities',
+            'foreignKey' => 'depCity_id',
+            'joinType' => 'INNER',
+        ]);
+        $this->belongsTo('DestCities', [
+            'className' => 'Cities',
+            'foreignKey' => 'destCity_id',
+            'joinType' => 'INNER',
+        ]);
         $this->belongsToMany('Planes', [
             'foreignKey' => 'reservation_id',
             'targetForeignKey' => 'plane_id',
@@ -83,7 +93,7 @@ class ReservationsTable extends Table
             ->maxLength('title', 255)
             ->requirePresence('title', 'create')
             ->notEmptyString('title');
-
+        /*
         $validator
             ->scalar('depCity')
             ->maxLength('depCity', 255)
@@ -95,7 +105,7 @@ class ReservationsTable extends Table
             ->maxLength('destCity', 255)
             ->requirePresence('destCity', 'create')
             ->notEmptyString('destCity');
-
+        */
         /*        $validator
             ->scalar('slug')
             ->maxLength('slug', 191)

@@ -1,9 +1,20 @@
 <?php
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\City $city
  * @var \Cake\Collection\CollectionInterface|string[] $provincesStates
  */
+?>
+<?php
+$urlToLinkedListFilter = $this->Url->build([
+    "controller" => "ProvincesStates",
+    "action" => "getByCountry",
+    "_ext" => "json"
+]);
+
+echo $this->Html->scriptBlock('var urlToLinkedListFilter = "' . $urlToLinkedListFilter . '";', ['block' => true]);
+echo $this->Html->script('Cities/add_edit', ['block' => 'scriptBottom']);
 ?>
 <div class="row">
     <aside class="column">
@@ -18,8 +29,9 @@
             <fieldset>
                 <legend><?= __('Add City') ?></legend>
                 <?php
-                    echo $this->Form->control('province_id', ['options' => $provincesStates]);
-                    echo $this->Form->control('city');
+                echo $this->Form->control('country_id', ['options', $countries]);
+                echo $this->Form->control('province_id', ['options' => [__('Please select a Country first')]]);
+                echo $this->Form->control('city');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

@@ -6,7 +6,20 @@
  * @var \Cake\Collection\CollectionInterface|string[] $users
  * @var \Cake\Collection\CollectionInterface|string[] $planes
  */
+
+use App\Model\Entity\City;
+
 ?>
+<?php
+$urlToCitiesAutoCompleteJson = $this->Url->build([
+    "controller" => "Cities",
+    "action" => "findCities",
+    "_ext" => "json"
+]);
+echo $this->Html->scriptBlock('var urlToAutocompleteAction = "' . $urlToCitiesAutoCompleteJson . '";', ['block' => true]);
+echo $this->Html->script('Reservations/add_edit/cityAutocomplete', ['block' => 'scriptBottom']);
+?>
+
 <div class="row">
     <aside class="column">
         <div class="side-nav">
@@ -22,8 +35,24 @@
                 <?php
                 echo $this->Form->control('user_id', ['type' => 'hidden', 'value' => 1]);
                 echo $this->Form->control('title');
-                echo $this->Form->control('depCity');
-                echo $this->Form->control('destCity');
+
+                echo $this->Form->control('depCity_id', ['label' => '(depCity_id)', 'type' => 'hidden']);
+                echo $this->Form->control('destCity_id', ['label' => '(destCity_id)', 'type' => 'hidden']);
+                ?>
+
+                <div class="input text">
+                    <label for="autocomplete"><?= __("DepCity") . ' (' . __('Autocomplete') . ')' ?></label>
+                    <input id="autocompleteDep" type="text">
+                </div>
+
+
+                <div class="input text">
+                    <label for="autocomplete"><?= __("DestCity") . ' (' . __('Autocomplete') . ')' ?></label>
+                    <input id="autocompleteDest" type="text">
+                </div>
+
+                <?php
+
                 // echo $this->Form->control('slug');
                 echo $this->Form->control('body');
                 echo $this->Form->control('image_file', ['type' => 'file']);

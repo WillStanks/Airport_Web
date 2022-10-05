@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -40,7 +41,7 @@ class CountriesTable extends Table
         parent::initialize($config);
 
         $this->setTable('countries');
-        $this->setDisplayField('id');
+        $this->setDisplayField('country');
         $this->setPrimaryKey('id');
 
         $this->hasMany('ProvincesStates', [

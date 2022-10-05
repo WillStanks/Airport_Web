@@ -15,6 +15,7 @@
             <?= $this->Html->link(__('New Reservation'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
+
     <div class="column-responsive column-80">
         <div class="reservations view content">
             <h3><?= h($reservation->title) ?></h3>
@@ -29,11 +30,11 @@
                 </tr>
                 <tr>
                     <th><?= __('DepCity') ?></th>
-                    <td><?= h($reservation->depCity) ?></td>
+                    <td><?= h($reservation->dep_city->city) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('DestCity') ?></th>
-                    <td><?= h($reservation->destCity) ?></td>
+                    <td><?= h($reservation->dest_city->city) ?></td>
                 </tr>
                 <!--tr>
                     <th><?= __('Slug') ?></th>

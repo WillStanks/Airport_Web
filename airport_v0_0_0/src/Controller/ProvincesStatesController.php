@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
@@ -11,6 +12,27 @@ namespace App\Controller;
  */
 class ProvincesStatesController extends AppController
 {
+
+    public function getByCountry()
+    {
+        $this->Authorization->skipAuthorization();
+        $country_id = $this->request->getQuery('country_id');
+        $provincesStates = $this->ProvincesStates->find('all', [
+            'conditions' => ['ProvincesStates.country_id' => $country_id],
+        ]);
+        /*
+        $this->set('provincesStates', $provincesStates);
+        $this->set('_serialize', ['provincesStates']);
+        */
+
+        $data = '';
+        foreach ($provincesStates as $provinceState) {
+            $data .= '<option value="' . $provinceState->id . '">' . $provinceState->province_states . "</options>\r\n";
+        }
+        $this->autoRender = false;
+        echo $data;
+    }
+
     /**
      * Index method
      *

@@ -12,8 +12,8 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $user_id
  * @property string $title
- * @property string $depCity
- * @property string $destCity
+ * @property int $depCity_id
+ * @property int $destCity_id
  * @property string $slug
  * @property string|null $body
  * @property bool|null $escale
@@ -37,8 +37,8 @@ class Reservation extends Entity
     protected $_accessible = [
         //        'user_id' => true,
         'title' => true,
-        'depCity' => true,
-        'destCity' => true,
+        'depCity_id' => true,
+        'destCity_id' => true,
         //        'slug' => true,
         'body' => true,
         'escale' => true,
