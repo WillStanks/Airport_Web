@@ -151,9 +151,9 @@ class ReservationsController extends AppController
         }
         $users = $this->Reservations->Users->find('list', ['limit' => 200])->all();
         $planes = $this->Reservations->Planes->find('list', ['limit' => 200])->all();
-        $depCities = $this->Reservations->DepCities->find('list', ['limit' => 200])->all();
-        $destCities = $this->Reservations->DestCities->find('list', ['limit' => 200])->all();
-        $this->set(compact('reservation', 'users', 'planes', 'depCities', 'destCities'));
+        $depCity = $this->Reservations->DepCities->get($reservation->depCity_id);
+        $destCity = $this->Reservations->DestCities->get($reservation->destCity_id);
+        $this->set(compact('reservation', 'users', 'planes', 'depCity', 'destCity'));
     }
 
     /**

@@ -44,13 +44,13 @@ echo $this->Html->script('Reservations/add_edit/cityAutocomplete', ['block' => '
 
                 <div class="input text">
                     <label for="autocomplete"><?= __("DepCity") . ' (' . __('Autocomplete') . ')' ?></label>
-                    <input id="autocompleteDep" type="text">
+                    <input id="autocompleteDep" type="text" value="<?= $depCity->city ?>">
                 </div>
 
 
                 <div class="input text">
                     <label for="autocomplete"><?= __("DestCity") . ' (' . __('Autocomplete') . ')' ?></label>
-                    <input id="autocompleteDest" type="text">
+                    <input id="autocompleteDest" type="text" value="<?= $destCity->city ?>">
                 </div>
                 <?php
                 echo $this->Form->control('body');

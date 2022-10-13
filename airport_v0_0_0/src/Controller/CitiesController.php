@@ -96,6 +96,7 @@ class CitiesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->Authorization->skipAuthorization();
         $city = $this->Cities->get($id, [
             'contain' => [],
         ]);

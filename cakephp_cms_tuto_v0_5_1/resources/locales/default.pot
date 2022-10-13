@@ -1,0 +1,359 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2021-08-30 12:00+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/ArticlesController.php:66
+#: Controller/ArticlesController.php:100
+msgid "The article has been saved."
+msgstr ""
+
+#: Controller/ArticlesController.php:70
+#: Controller/ArticlesController.php:104
+msgid "The article could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ArticlesController.php:123
+msgid "The article has been deleted."
+msgstr ""
+
+#: Controller/ArticlesController.php:125
+msgid "The article could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/TagsController.php:53
+#: Controller/TagsController.php:78
+msgid "The tag has been saved."
+msgstr ""
+
+#: Controller/TagsController.php:57
+#: Controller/TagsController.php:82
+msgid "The tag could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/TagsController.php:100
+msgid "The tag has been deleted."
+msgstr ""
+
+#: Controller/TagsController.php:102
+msgid "The tag could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:38
+msgid "Invalid username or password"
+msgstr ""
+
+#: Controller/UsersController.php:89
+#: Controller/UsersController.php:112
+msgid "The user has been saved."
+msgstr ""
+
+#: Controller/UsersController.php:93
+#: Controller/UsersController.php:116
+msgid "The user could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:132
+msgid "The user has been deleted."
+msgstr ""
+
+#: Controller/UsersController.php:134
+msgid "The user could not be deleted. Please, try again."
+msgstr ""
+
+#: Articles/add.php:10
+#: Articles/edit.php:10
+#: Articles/index.php:21
+#: Articles/view.php:10
+#: Articles/view.php:66
+#: Tags/add.php:10
+#: Tags/edit.php:10
+#: Tags/index.php:18
+#: Tags/view.php:10
+#: Tags/view.php:52
+#: Users/add.php:10
+#: Users/edit.php:10
+#: Users/index.php:19
+#: Users/view.php:10
+#: Users/view.php:56
+msgid "Actions"
+msgstr ""
+
+#: Articles/add.php:11
+#: Articles/edit.php:16
+#: Articles/view.php:13
+msgid "List Articles"
+msgstr ""
+
+#: Articles/add.php:18
+msgid "Add Article"
+msgstr ""
+
+#: Articles/add.php:28
+#: Articles/edit.php:33
+#: Tags/add.php:24
+#: Tags/edit.php:29
+#: Users/add.php:24
+#: Users/edit.php:29
+msgid "Submit"
+msgstr ""
+
+#: Articles/edit.php:12
+#: Articles/index.php:37
+#: Articles/view.php:77
+#: Tags/edit.php:12
+#: Tags/index.php:31
+#: Tags/view.php:67
+#: Users/edit.php:12
+#: Users/index.php:33
+#: Users/view.php:71
+msgid "Delete"
+msgstr ""
+
+#: Articles/edit.php:14
+#: Articles/index.php:37
+#: Articles/view.php:12
+#: Articles/view.php:77
+#: Tags/edit.php:14
+#: Tags/index.php:31
+#: Tags/view.php:12
+#: Tags/view.php:67
+#: Users/edit.php:14
+#: Users/index.php:33
+#: Users/view.php:12
+#: Users/view.php:71
+msgid "Are you sure you want to delete # {0}?"
+msgstr ""
+
+#: Articles/edit.php:23
+#: Articles/view.php:11
+msgid "Edit Article"
+msgstr ""
+
+#: Articles/index.php:8
+#: Articles/view.php:14
+msgid "New Article"
+msgstr ""
+
+#: Articles/index.php:9
+msgid "Articles"
+msgstr ""
+
+#: Articles/index.php:35
+#: Articles/view.php:75
+#: Tags/index.php:29
+#: Tags/view.php:65
+#: Users/index.php:31
+#: Users/view.php:69
+msgid "View"
+msgstr ""
+
+#: Articles/index.php:36
+#: Articles/view.php:76
+#: Tags/index.php:30
+#: Tags/view.php:66
+#: Users/index.php:32
+#: Users/view.php:70
+msgid "Edit"
+msgstr ""
+
+#: Articles/index.php:46
+#: Tags/index.php:40
+#: Users/index.php:42
+msgid "first"
+msgstr ""
+
+#: Articles/index.php:47
+#: Tags/index.php:41
+#: Users/index.php:43
+msgid "previous"
+msgstr ""
+
+#: Articles/index.php:49
+#: Tags/index.php:43
+#: Users/index.php:45
+msgid "next"
+msgstr ""
+
+#: Articles/index.php:50
+#: Tags/index.php:44
+#: Users/index.php:46
+msgid "last"
+msgstr ""
+
+#: Articles/index.php:52
+#: Tags/index.php:46
+#: Users/index.php:48
+msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
+msgstr ""
+
+#: Articles/view.php:12
+msgid "Delete Article"
+msgstr ""
+
+#: Articles/view.php:22
+msgid "User"
+msgstr ""
+
+#: Articles/view.php:26
+#: Articles/view.php:63
+#: Tags/view.php:22
+#: Tags/view.php:46
+#: Users/view.php:50
+msgid "Title"
+msgstr ""
+
+#: Articles/view.php:30
+#: Tags/view.php:47
+#: Users/view.php:51
+msgid "Slug"
+msgstr ""
+
+#: Articles/view.php:34
+#: Articles/view.php:62
+#: Tags/view.php:26
+#: Tags/view.php:44
+#: Users/view.php:30
+#: Users/view.php:48
+msgid "Id"
+msgstr ""
+
+#: Articles/view.php:38
+#: Articles/view.php:64
+#: Tags/view.php:30
+#: Tags/view.php:50
+#: Users/view.php:34
+#: Users/view.php:54
+msgid "Created"
+msgstr ""
+
+#: Articles/view.php:42
+#: Articles/view.php:65
+#: Tags/view.php:34
+#: Tags/view.php:51
+#: Users/view.php:38
+#: Users/view.php:55
+msgid "Modified"
+msgstr ""
+
+#: Articles/view.php:46
+#: Tags/view.php:49
+#: Users/view.php:53
+msgid "Published"
+msgstr ""
+
+#: Articles/view.php:47
+msgid "Yes"
+msgstr ""
+
+#: Articles/view.php:47
+msgid "No"
+msgstr ""
+
+#: Articles/view.php:51
+#: Tags/view.php:48
+#: Users/view.php:52
+msgid "Body"
+msgstr ""
+
+#: Articles/view.php:57
+msgid "Related Tags"
+msgstr ""
+
+#: Tags/add.php:11
+#: Tags/edit.php:16
+#: Tags/view.php:13
+msgid "List Tags"
+msgstr ""
+
+#: Tags/add.php:18
+msgid "Add Tag"
+msgstr ""
+
+#: Tags/edit.php:23
+#: Tags/view.php:11
+msgid "Edit Tag"
+msgstr ""
+
+#: Tags/index.php:8
+#: Tags/view.php:14
+msgid "New Tag"
+msgstr ""
+
+#: Tags/index.php:9
+msgid "Tags"
+msgstr ""
+
+#: Tags/view.php:12
+msgid "Delete Tag"
+msgstr ""
+
+#: Tags/view.php:39
+#: Users/view.php:43
+msgid "Related Articles"
+msgstr ""
+
+#: Tags/view.php:45
+#: Users/view.php:49
+msgid "User Id"
+msgstr ""
+
+#: Users/add.php:11
+#: Users/edit.php:16
+#: Users/view.php:13
+msgid "List Users"
+msgstr ""
+
+#: Users/add.php:18
+msgid "Add User"
+msgstr ""
+
+#: Users/edit.php:23
+#: Users/view.php:11
+msgid "Edit User"
+msgstr ""
+
+#: Users/index.php:8
+#: Users/view.php:14
+msgid "New User"
+msgstr ""
+
+#: Users/index.php:9
+msgid "Users"
+msgstr ""
+
+#: Users/login.php:7
+msgid "Please enter your username and password"
+msgstr ""
+
+#: Users/login.php:11
+msgid "Login"
+msgstr ""
+
+#: Users/view.php:12
+msgid "Delete User"
+msgstr ""
+
+#: Users/view.php:22
+msgid "Email"
+msgstr ""
+
+#: Users/view.php:26
+msgid "Password"
+msgstr ""
+
+#: layout/error.php:38
+msgid "Back"
+msgstr ""
+

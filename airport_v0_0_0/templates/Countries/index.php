@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Country[]|\Cake\Collection\CollectionInterface $countries
@@ -17,16 +18,16 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($countries as $country): ?>
-                <tr>
-                    <td><?= $this->Number->format($country->id) ?></td>
-                    <td><?= h($country->country) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $country->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $country->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $country->id], ['confirm' => __('Are you sure you want to delete # {0}?', $country->id)]) ?>
-                    </td>
-                </tr>
+                <?php foreach ($countries as $country) : ?>
+                    <tr>
+                        <td><?= $this->Number->format($country->id) ?></td>
+                        <td><?= h($country->country) ?></td>
+                        <td class="actions">
+                            <?= $this->Html->link(__('View'), ['action' => 'view', $country->id]) ?>
+                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $country->id]) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $country->id], ['confirm' => __('Are you sure you want to delete # {0}?', $country->id)]) ?>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>

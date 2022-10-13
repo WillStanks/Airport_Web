@@ -76,6 +76,13 @@ return static function (RouteBuilder $routes) {
         $builder->fallbacks();
     });
 
+
+    $routes->prefix('api', function (RouteBuilder $builder) {
+        //    $routes->setExtensions(['json']);
+        $builder->resources('Countries');
+        $builder->fallbacks();
+    });
+
     /*
      * If you need a different set of middleware or none at all,
      * open new scope and define routes there.

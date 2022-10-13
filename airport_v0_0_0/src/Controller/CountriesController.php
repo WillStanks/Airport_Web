@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
@@ -18,6 +19,7 @@ class CountriesController extends AppController
      */
     public function index()
     {
+        $this->Authorization->skipAuthorization();
         $countries = $this->paginate($this->Countries);
 
         $this->set(compact('countries'));
@@ -32,6 +34,7 @@ class CountriesController extends AppController
      */
     public function view($id = null)
     {
+        $this->Authorization->skipAuthorization();
         $country = $this->Countries->get($id, [
             'contain' => ['ProvincesStates'],
         ]);
@@ -46,6 +49,7 @@ class CountriesController extends AppController
      */
     public function add()
     {
+        $this->Authorization->skipAuthorization();
         $country = $this->Countries->newEmptyEntity();
         if ($this->request->is('post')) {
             $country = $this->Countries->patchEntity($country, $this->request->getData());
@@ -68,6 +72,7 @@ class CountriesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->Authorization->skipAuthorization();
         $country = $this->Countries->get($id, [
             'contain' => [],
         ]);
