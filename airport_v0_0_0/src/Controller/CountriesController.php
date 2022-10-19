@@ -20,9 +20,12 @@ class CountriesController extends AppController
     public function index()
     {
         $this->Authorization->skipAuthorization();
-        $countries = $this->paginate($this->Countries);
+        $countries = $this->Countries->find('all')->all();
+        //$countries = $this->paginate($this->Countries);
 
         $this->set(compact('countries'));
+        $this->viewBuilder()->setOption('serialize', ['countries']);
+        $this->viewBuilder()->setLayout('countriesSpa');
     }
 
     /**
