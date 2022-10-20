@@ -29,7 +29,7 @@ echo $this->Html->script('Countries/index', ['block' => 'scriptBottom']);
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody id="countryData">
+            <tbody id="countriesData">
                 <?php if (!empty($countries)) {
                     foreach ($countries as $row) { ?>
                         <tr>

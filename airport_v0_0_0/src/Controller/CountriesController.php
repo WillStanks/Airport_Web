@@ -28,6 +28,14 @@ class CountriesController extends AppController
         $this->viewBuilder()->setLayout('countriesSpa');
     }
 
+    public function indexBaked()
+    {
+        $this->Authorization->skipAuthorization();
+        $countries = $this->paginate($this->Countries);
+
+        $this->set(compact('countries'));
+    }
+
     /**
      * View method
      *

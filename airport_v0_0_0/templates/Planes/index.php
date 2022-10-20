@@ -1,11 +1,12 @@
 <?php
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Plane[]|\Cake\Collection\CollectionInterface $planes
  */
 ?>
 <div class="planes index content">
-    <?= $this->Html->link(__('New Plane'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?= $this->Html->link(__('Admin Planes'), ['controller' => 'Planes', 'prefix' => 'Admin'], ['class' => 'button float-right']) ?>
     <h3><?= __('Planes') ?></h3>
     <div class="table-responsive">
         <table>
@@ -21,20 +22,18 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($planes as $plane): ?>
-                <tr>
-                    <td><?= $this->Number->format($plane->id) ?></td>
-                    <td><?= h($plane->title) ?></td>
-                    <td><?= $this->Number->format($plane->seats) ?></td>
-                    <td><?= h($plane->details) ?></td>
-                    <td><?= h($plane->created) ?></td>
-                    <td><?= h($plane->modified) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $plane->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $plane->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $plane->id], ['confirm' => __('Are you sure you want to delete # {0}?', $plane->id)]) ?>
-                    </td>
-                </tr>
+                <?php foreach ($planes as $plane) : ?>
+                    <tr>
+                        <td><?= $this->Number->format($plane->id) ?></td>
+                        <td><?= h($plane->title) ?></td>
+                        <td><?= $this->Number->format($plane->seats) ?></td>
+                        <td><?= h($plane->details) ?></td>
+                        <td><?= h($plane->created) ?></td>
+                        <td><?= h($plane->modified) ?></td>
+                        <td class="actions">
+                            <?= $this->Html->link(__('View'), ['action' => 'view', $plane->id]) ?>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>

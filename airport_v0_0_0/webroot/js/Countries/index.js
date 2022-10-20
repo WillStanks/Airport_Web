@@ -6,33 +6,32 @@ function getCountries() {
         url: urlToRestApi,
         dataType: "json",
         success:
-                function (data) {
-                    var countrieTable = $('#countriesData');
-                    countrieTable.empty();
-                    $.each(data.countries, function (key, value)
-                    {
-                        var editDeleteButtons = '</td><td>' +
-                                '<a href="javascript:void(0);" class="btn btn-warning" rowID="' +
-                                    value.id + 
-                                    '" data-type="edit" data-toggle="modal" data-target="#modalCountryAddEdit">' + 
-                                    'edit</a>' +
-                                '<a href="javascript:void(0);" class="btn btn-danger"' +
-                                    'onclick="return confirm(\'Are you sure to delete data?\') ?' + 
-                                    'countryAction(\'delete\', \'' + 
-                                    value.id + 
-                                    '\') : false;">delete</a>' +
-                                '</td></tr>';
-                                countrieTable.append('<tr><td>' + value.id + '</td><td>' + value.country + '</td><td>' + editDeleteButtons);
- 
-                    });
+            function (data) {
+                var countrieTable = $('#countriesData');
+                countrieTable.empty();
+                $.each(data.countries, function (key, value) {
+                    var editDeleteButtons = '</td><td>' +
+                        '<a href="javascript:void(0);" class="btn btn-warning" rowID="' +
+                        value.id +
+                        '" data-type="edit" data-toggle="modal" data-target="#modalCountryAddEdit">' +
+                        'edit</a>' +
+                        '<a href="javascript:void(0);" class="btn btn-danger"' +
+                        'onclick="return confirm(\'Are you sure to delete data?\') ?' +
+                        'countryAction(\'delete\', \'' +
+                        value.id +
+                        '\') : false;">delete</a>' +
+                        '</td></tr>';
+                    countrieTable.append('<tr><td>' + value.id + '</td><td>' + value.country + '</td><td>' + editDeleteButtons);
 
-                }
+                });
+
+            }
 
     });
 }
 
- /* Function takes a jquery form
- and converts it to a JSON dictionary */
+/* Function takes a jquery form
+and converts it to a JSON dictionary */
 function convertFormToJSON(form) {
     var array = $(form).serializeArray();
     var json = {};
@@ -47,7 +46,7 @@ function convertFormToJSON(form) {
 
 function countryAction(type, id) {
     id = (typeof id == "undefined") ? '' : id;
-    var statusArr = {add: "added", edit: "updated", delete: "deleted"};
+    var statusArr = { add: "added", edit: "updated", delete: "deleted" };
     var requestType = '';
     var countryData = '';
     var ajaxUrl = urlToRestApi;
@@ -57,6 +56,7 @@ function countryAction(type, id) {
         countryData = convertFormToJSON(frmElement.find('form'));
     } else if (type == 'edit') {
         requestType = 'PUT';
+        ajaxUrl = ajaxUrl + "/" + id;
         countryData = convertFormToJSON(frmElement.find('form'));
     } else {
         requestType = 'DELETE';
@@ -86,13 +86,12 @@ function countryAction(type, id) {
 // Fill the country's data in the edit form
 function editCountry(id) {
     $.ajax({
-        type: 'POST',
-        url: 'CountryAction.php',
+        type: 'GET',
+        url: urlToRestApi + "/" + id,
         dataType: 'JSON',
-        data: 'action_type=data&id=' + id,
         success: function (data) {
-            $('#id').val(data.id);
-            $('#country').val(data.country);
+            $('#id').val(data.country.id);
+            $('#country').val(data.country.country);
         }
     });
 }
@@ -104,9 +103,9 @@ $(function () {
         var countryFunc = "countryAction('add');";
         $('.modal-title').html('Add new country');
         if (type == 'edit') {
-            countryFunc = "countryAction('edit');";
-            $('.modal-title').html('Edit country');
             var rowId = $(e.relatedTarget).attr('rowID');
+            countryFunc = "countryAction('edit', " + rowId + ");";
+            $('.modal-title').html('Edit country');
             editCountry(rowId);
         }
         $('#countrySubmit').attr("onclick", countryFunc);

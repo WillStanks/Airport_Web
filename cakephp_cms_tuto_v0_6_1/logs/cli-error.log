@@ -1,0 +1,48 @@
+2021-09-28 23:42:54 Error: [Cake\Database\Exception\DatabaseException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'cakecmstuto_v0_2_1.kraj_regions' doesn't exist in C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 142
+Stack Trace:
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Database\Schema\Collection.php:100
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php:84
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\ORM\Table.php:513
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\ORM\Table.php:653
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\bake\src\Command\ModelCommand.php:199
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\bake\src\Command\ModelCommand.php:122
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\bake\src\Command\ModelCommand.php:98
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\bake\src\Command\ModelCommand.php:81
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\bake\src\Command\AllCommand.php:115
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Console\BaseCommand.php:179
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Console\CommandRunner.php:336
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Console\CommandRunner.php:172
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\bin\cake.php:12
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'cakecmstuto_v0_2_1.kraj_regions' doesn't exist in C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php on line 39
+Stack Trace:
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php:39
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Database\Connection.php:310
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Core\Retry\CommandRetry.php:70
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Database\Connection.php:313
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Database\Schema\Collection.php:140
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Database\Schema\Collection.php:100
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php:84
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\ORM\Table.php:513
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\ORM\Table.php:653
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\bake\src\Command\ModelCommand.php:199
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\bake\src\Command\ModelCommand.php:122
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\bake\src\Command\ModelCommand.php:98
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\bake\src\Command\ModelCommand.php:81
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\bake\src\Command\AllCommand.php:115
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Console\BaseCommand.php:179
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Console\CommandRunner.php:336
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\vendor\cakephp\cakephp\src\Console\CommandRunner.php:172
+- C:\Ampps39a21\www\section_4\cakephp_cms_tuto_v0_4_1\bin\cake.php:12
+
+
+
+2021-10-12 20:24:14 Error: [Error] Class 'Router' not found in C:\Ampps39a21\www\section_5\cakephp_cms_tuto_v0_5_1\config\routes.php on line 78
+Stack Trace:
+- C:\Ampps39a21\www\section_5\cakephp_cms_tuto_v0_5_1\vendor\cakephp\cakephp\src\Http\BaseApplication.php:197
+- C:\Ampps39a21\www\section_5\cakephp_cms_tuto_v0_5_1\vendor\cakephp\cakephp\src\Console\CommandRunner.php:399
+- C:\Ampps39a21\www\section_5\cakephp_cms_tuto_v0_5_1\vendor\cakephp\cakephp\src\Console\CommandRunner.php:147
+- C:\Ampps39a21\www\section_5\cakephp_cms_tuto_v0_5_1\bin\cake.php:12
+
+
+

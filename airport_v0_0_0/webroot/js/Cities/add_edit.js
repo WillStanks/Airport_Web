@@ -16,14 +16,14 @@ $(document).ready(function () {
                         });
                     });
                     */
-                   $('#province-id').html(provinces);
+                    $('#province-id').html(provinces);
                 },
-                error: function (jqXHR, textStatus, errorThrown){
+                error: function (jqXHR, textStatus, errorThrown) {
                     console.log(textStatus, errorThrown);
                 }
             });
         } else {
             $('#province-id').html('<option value="">Select Country first</option>');
         }
-    });
+    }).change();
 });
