@@ -28,6 +28,7 @@
                         <td><?= @$this->Html->image('reservations/' . $reservation->image, ['style' => 'max_width:50px;height:50px;border-radius:50%;']) ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $reservation->slug]) ?>
+                            <?= $this->Html->link('(pdf)', ['action' => 'view', $reservation->slug . '.pdf']) ?>
                             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $reservation->slug]) ?>
                             <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $reservation->id], ['confirm' => __('Are you sure you want to delete # {0}?', $reservation->id)]) ?>
                         </td>

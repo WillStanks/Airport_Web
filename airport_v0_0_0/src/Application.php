@@ -62,6 +62,7 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
     {
         // Call parent to load bootstrap from files.
         parent::bootstrap();
+        $this->addPlugin(\BootstrapUI\Plugin::class);
 
         if (PHP_SAPI === 'cli') {
             $this->bootstrapCli();
@@ -83,6 +84,7 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
 
         // Load more plugins here
         $this->addPlugin('Authorization');
+        $this->addPlugin('CakePdf');
     }
 
     /**

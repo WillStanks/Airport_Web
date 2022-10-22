@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller\Admin;
@@ -35,7 +36,6 @@ class PlanesController extends AppController
      */
     public function view($id = null)
     {
-        $this->Authorization->skipAuthorization();
         $plane = $this->Planes->get($id, [
             'contain' => ['Reservations'],
         ]);
@@ -50,7 +50,6 @@ class PlanesController extends AppController
      */
     public function add()
     {
-        $this->Authorization->skipAuthorization();
         $plane = $this->Planes->newEmptyEntity();
         if ($this->request->is('post')) {
             $plane = $this->Planes->patchEntity($plane, $this->request->getData());
@@ -74,7 +73,6 @@ class PlanesController extends AppController
      */
     public function edit($id = null)
     {
-        $this->Authorization->skipAuthorization();
         $plane = $this->Planes->get($id, [
             'contain' => ['Reservations'],
         ]);
@@ -100,7 +98,6 @@ class PlanesController extends AppController
      */
     public function delete($id = null)
     {
-        $this->Authorization->skipAuthorization();
         $this->request->allowMethod(['post', 'delete']);
         $plane = $this->Planes->get($id);
         if ($this->Planes->delete($plane)) {

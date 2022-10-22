@@ -45,7 +45,7 @@ return static function (RouteBuilder $routes) {
      */
     $routes->setRouteClass(DashedRoute::class);
 
-    $routes->setExtensions(['json', 'xml']);
+    $routes->setExtensions(['json', 'xml', 'pdf']);
 
     $routes->scope('/', function (RouteBuilder $builder) {
         /*
