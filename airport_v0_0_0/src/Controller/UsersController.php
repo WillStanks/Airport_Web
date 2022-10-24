@@ -16,6 +16,12 @@ use Cake\Utility\Text;
 class UsersController extends AppController
 {
 
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->viewBuilder()->setLayout('cakephp_default');
+    }
+
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
@@ -116,7 +122,7 @@ class UsersController extends AppController
         $user = $this->Users->get($id, [
             'contain' => ['Reservations'],
         ]);
-        
+
 
         $this->set(compact('user'));
     }
