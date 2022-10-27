@@ -10,8 +10,6 @@
 <?php $this->start('tb_actions'); ?>
 <li><?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $plane->id], ['confirm' => __('Are you sure you want to delete # {0}?', $plane->id), 'class' => 'nav-link']) ?></li>
 <li><?= $this->Html->link(__('List Planes'), ['action' => 'index'], ['class' => 'nav-link']) ?></li>
-<li><?= $this->Html->link(__('List Reservations'), ['controller' => 'Reservations', 'action' => 'index'], ['class' => 'nav-link']) ?></li>
-<li><?= $this->Html->link(__('New Reservation'), ['controller' => 'Reservations', 'action' => 'add'], ['class' => 'nav-link']) ?></li>
 <?php $this->end(); ?>
 <?php $this->assign('tb_sidebar', '<ul class="nav flex-column">' . $this->fetch('tb_actions') . '</ul>'); ?>
 

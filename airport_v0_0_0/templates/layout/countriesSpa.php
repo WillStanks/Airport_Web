@@ -71,6 +71,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             } else {
                 echo $this->Html->link('Login', ['controller' => 'Users', 'action' => 'login']);
             }
+            echo $this->Html->link('Planes', ['controller' => 'Planes'], ['escape' => false]);
             echo $this->Html->link('Français', ['action' => 'changeLang', 'fr_CA'], ['escape' => false]);
             echo $this->Html->link('English', ['action' => 'changeLang', 'en_US'], ['escape' => false]);
             echo $this->Html->link('Română', ['action' => 'changeLang', 'ro_RO'], ['escape' => false]);

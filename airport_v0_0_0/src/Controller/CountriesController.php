@@ -12,6 +12,7 @@ namespace App\Controller;
  */
 class CountriesController extends AppController
 {
+
     /**
      * Index method
      *
@@ -19,6 +20,7 @@ class CountriesController extends AppController
      */
     public function index()
     {
+        $this->viewBuilder()->setLayout('cakephp_default');
         $this->Authorization->skipAuthorization();
         $countries = $this->Countries->find('all')->all();
         //$countries = $this->paginate($this->Countries);

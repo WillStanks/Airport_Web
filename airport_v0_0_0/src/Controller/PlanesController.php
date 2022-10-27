@@ -15,6 +15,7 @@ class PlanesController extends AppController
 
     public function initialize(): void
     {
+        $this->viewBuilder()->setLayout('cakephp_default');
         parent::initialize();
         $this->Authorization->skipAuthorization();
     }

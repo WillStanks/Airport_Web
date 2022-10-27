@@ -13,6 +13,12 @@ namespace App\Controller;
 class CitiesController extends AppController
 {
 
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->viewBuilder()->setLayout('cakephp_default');
+    }
+
     public function findCities()
     {
         $this->Authorization->skipAuthorization();
@@ -57,6 +63,7 @@ class CitiesController extends AppController
      */
     public function view($id = null)
     {
+        $this->Authorization->skipAuthorization();
         $city = $this->Cities->get($id, [
             'contain' => ['ProvincesStates'],
         ]);
@@ -122,6 +129,7 @@ class CitiesController extends AppController
      */
     public function delete($id = null)
     {
+        $this->Authorization->skipAuthorization();
         $this->request->allowMethod(['post', 'delete']);
         $city = $this->Cities->get($id);
         if ($this->Cities->delete($city)) {

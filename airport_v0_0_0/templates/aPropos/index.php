@@ -12,6 +12,15 @@
     allez monter à bord. Il est ensuite possible de pouvoir afficher, modifier et supprimer cette réservations. Évidemment, la page principal
     vous permet de voir tous les réservations déjà créée. Ensuite, l'application est disponible en 3 langues (Français, Anglais, Roumain).
 </p><br>
+<h3>Nouvelles fonctionnalités !</h3>
+<p>
+    Il est maintenant possible d'ajouter des nouveaux pays, provinces ou États et des villes pour diversifier nos réservations de voyages.
+    Lorsque vous ajouter des états ou provinces et des villes vous devez toujours les liés avec leur pays ainsi que provinces ou états.
+    L'interface pour les pays est maintenant faite en monopage qui communique maintenant avec un API. Ensuite, la page des avions est maintenant
+    accesible via un login Admin pour pouvoir ajouter, modifier et supprimer un avion. Elle est aussi adapter au plus petit écran (Exemple : Téléphone intelligent).
+    Elle utilise notamment Bootstrap UI. Finalement, lors du choix de villes de départ ainsi que d'arrivé de la réservation, vous serez obliger de sélectionner
+    une ville parmis celle de la BD. Pour vous aider une autocomplétion à été ajouté pour ses champs.
+</p><br>
 <h3>Quelques erreurs possibles</h3>
 <p>
     Si jamais vous essayez de modifier ou supprimer une réservation que vous n'avez pas créers vous allez recevoir une erreur car

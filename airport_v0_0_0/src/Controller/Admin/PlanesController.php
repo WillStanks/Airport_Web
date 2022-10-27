@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Admin;
 
-use App\Controller\AppController;
+use App\Controller\Admin\AppController;
 
 /**
  * Planes Controller
@@ -101,6 +101,7 @@ class PlanesController extends AppController
      */
     public function delete($id = null)
     {
+        $this->Authorization->skipAuthorization();
         $this->request->allowMethod(['post', 'delete']);
         $plane = $this->Planes->get($id);
         if ($this->Planes->delete($plane)) {

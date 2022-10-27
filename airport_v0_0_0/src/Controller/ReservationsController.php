@@ -22,6 +22,7 @@ class ReservationsController extends AppController
      */
     public function index()
     {
+        $this->viewBuilder()->setLayout('cakephp_default');
         $this->Authorization->skipAuthorization();
         /*        $this->paginate = [
             'contain' => ['Users'],
@@ -48,6 +49,7 @@ class ReservationsController extends AppController
      */
     public function view($slug = null)
     {
+        $this->viewBuilder()->setLayout('cakephp_default');
         $this->Authorization->skipAuthorization();
         $reservation = $this->Reservations->findBySlug($slug)->contain('Users')->contain('Planes')->contain('DepCities')->contain('DestCities')->firstOrFail();
 
@@ -61,7 +63,7 @@ class ReservationsController extends AppController
      */
     public function add()
     {
-
+        $this->viewBuilder()->setLayout('cakephp_default');
         // Vérification en contexte i18n
         if ($this->request->getSession()->check('Config.language')) {
             $actualLanguage = $this->request->getSession()->read('Config.language'); // langue d'affichage actuellement définie
@@ -117,6 +119,7 @@ class ReservationsController extends AppController
      */
     public function edit($slug = null)
     {
+        $this->viewBuilder()->setLayout('cakephp_default');
         $reservation = $this->Reservations->findBySlug($slug)->contain('Users')->contain('Planes')->contain('DepCities')->contain('DestCities')->firstOrFail();
         $this->Authorization->authorize($reservation);
         /*       $reservation = $this->Reservations->get($id, [
@@ -165,6 +168,7 @@ class ReservationsController extends AppController
      */
     public function delete($id = null)
     {
+        $this->viewBuilder()->setLayout('cakephp_default');
         $this->request->allowMethod(['post', 'delete']);
         $reservation = $this->Reservations->get($id);
         $this->Authorization->authorize($reservation);

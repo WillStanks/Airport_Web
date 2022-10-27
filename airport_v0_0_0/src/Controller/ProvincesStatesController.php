@@ -13,6 +13,13 @@ namespace App\Controller;
 class ProvincesStatesController extends AppController
 {
 
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->viewBuilder()->setLayout('cakephp_default');
+    }
+
+
     public function getByCountry()
     {
         $this->Authorization->skipAuthorization();
@@ -40,6 +47,7 @@ class ProvincesStatesController extends AppController
      */
     public function index()
     {
+        $this->Authorization->skipAuthorization();
         $this->paginate = [
             'contain' => ['Countries'],
         ];
@@ -57,6 +65,7 @@ class ProvincesStatesController extends AppController
      */
     public function view($id = null)
     {
+        $this->Authorization->skipAuthorization();
         $provincesState = $this->ProvincesStates->get($id, [
             'contain' => ['Countries'],
         ]);
@@ -71,6 +80,7 @@ class ProvincesStatesController extends AppController
      */
     public function add()
     {
+        $this->Authorization->skipAuthorization();
         $provincesState = $this->ProvincesStates->newEmptyEntity();
         if ($this->request->is('post')) {
             $provincesState = $this->ProvincesStates->patchEntity($provincesState, $this->request->getData());
@@ -94,6 +104,7 @@ class ProvincesStatesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->Authorization->skipAuthorization();
         $provincesState = $this->ProvincesStates->get($id, [
             'contain' => [],
         ]);
@@ -119,6 +130,7 @@ class ProvincesStatesController extends AppController
      */
     public function delete($id = null)
     {
+        $this->Authorization->skipAuthorization();
         $this->request->allowMethod(['post', 'delete']);
         $provincesState = $this->ProvincesStates->get($id);
         if ($this->ProvincesStates->delete($provincesState)) {

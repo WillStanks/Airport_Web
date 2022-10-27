@@ -78,9 +78,9 @@
                             <td><?= h($reservations->created) ?></td>
                             <td><?= h($reservations->modified) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Reservations', 'action' => 'view', $reservations->id], ['class' => 'btn btn-secondary']) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Reservations', 'action' => 'edit', $reservations->id], ['class' => 'btn btn-secondary']) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Reservations', 'action' => 'delete', $reservations->id], ['confirm' => __('Are you sure you want to delete # {0}?', $reservations->id), 'class' => 'btn btn-danger']) ?>
+                                <?= $this->Html->link(__('View'), ['prefix' => false, 'controller' => 'Reservations', 'action' => 'view', $reservations->id], ['class' => 'btn btn-secondary']) ?>
+                                <?= $this->Html->link(__('Edit'), ['prefix' => false, 'controller' => 'Reservations', 'action' => 'edit', $reservations->id], ['class' => 'btn btn-secondary']) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['prefix' => false, 'controller' => 'Reservations', 'action' => 'delete', $reservations->id], ['confirm' => __('Are you sure you want to delete # {0}?', $reservations->id), 'class' => 'btn btn-danger']) ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>
