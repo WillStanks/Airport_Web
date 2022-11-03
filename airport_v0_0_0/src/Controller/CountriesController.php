@@ -27,7 +27,7 @@ class CountriesController extends AppController
 
         $this->set(compact('countries'));
         $this->viewBuilder()->setOption('serialize', ['countries']);
-        $this->viewBuilder()->setLayout('countriesSpa');
+        $this->viewBuilder()->setLayout('cakephp_default');
     }
 
     public function indexBaked()
@@ -36,6 +36,19 @@ class CountriesController extends AppController
         $countries = $this->paginate($this->Countries);
 
         $this->set(compact('countries'));
+    }
+
+    public function getCountries()
+    {
+        $this->Authorization->skipAuthorization();
+        $countries = $this->Countries->find(
+            'all',
+            ['contain' => ['ProvincesStates']]
+        );
+        $this->set([
+            'countries' => $countries,
+            '_serialize' => ['countries']
+        ]);
     }
 
     /**

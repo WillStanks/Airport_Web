@@ -6706,3 +6706,201 @@ Request URL: /img/articles/
 Referer URL: http://localhost/Airport_Web/cakephp_cms_tuto_v0_6_1/
 
 
+2022-10-27 16:06:13 Error: [Cake\Http\Exception\MissingControllerException] Controller class Img could not be found. in C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Controller\ControllerFactory.php on line 226
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Stack Trace:
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Controller\ControllerFactory.php:65
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\BaseApplication.php:311
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:77
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\authorization\src\Middleware\AuthorizationMiddleware.php:129
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\authentication\src\Middleware\AuthenticationMiddleware.php:124
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Middleware\BodyParserMiddleware.php:159
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php:161
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php:68
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php:126
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php:60
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:58
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Server.php:90
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\webroot\index.php:40
+
+Request URL: /img/articles/
+Referer URL: http://localhost/Airport_Web/cakephp_cms_tuto_v0_6_1/
+
+
+2022-10-27 16:07:04 Error: [Cake\Http\Exception\MissingControllerException] Controller class Img could not be found. in C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Controller\ControllerFactory.php on line 226
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Stack Trace:
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Controller\ControllerFactory.php:65
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\BaseApplication.php:311
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:77
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\authorization\src\Middleware\AuthorizationMiddleware.php:129
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\authentication\src\Middleware\AuthenticationMiddleware.php:124
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Middleware\BodyParserMiddleware.php:159
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php:161
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php:68
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php:126
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php:60
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:58
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Server.php:90
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\webroot\index.php:40
+
+Request URL: /img/articles/
+Referer URL: http://localhost/Airport_Web/cakephp_cms_tuto_v0_6_1/
+
+
+2022-10-27 16:07:56 Error: [Cake\Http\Exception\MissingControllerException] Controller class Img could not be found. in C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Controller\ControllerFactory.php on line 226
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Stack Trace:
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Controller\ControllerFactory.php:65
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\BaseApplication.php:311
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:77
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\authorization\src\Middleware\AuthorizationMiddleware.php:129
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\authentication\src\Middleware\AuthenticationMiddleware.php:124
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Middleware\BodyParserMiddleware.php:159
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php:161
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php:68
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php:126
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php:60
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:58
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Server.php:90
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\webroot\index.php:40
+
+Request URL: /img/articles/
+Referer URL: http://localhost/Airport_Web/cakephp_cms_tuto_v0_6_1/
+
+
+2022-10-27 16:09:04 Error: [Cake\Http\Exception\MissingControllerException] Controller class Img could not be found. in C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Controller\ControllerFactory.php on line 226
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Stack Trace:
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Controller\ControllerFactory.php:65
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\BaseApplication.php:311
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:77
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\authorization\src\Middleware\AuthorizationMiddleware.php:129
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\authentication\src\Middleware\AuthenticationMiddleware.php:124
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Middleware\BodyParserMiddleware.php:159
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php:161
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php:68
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php:126
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php:60
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:58
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Server.php:90
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\webroot\index.php:40
+
+Request URL: /img/articles/
+Referer URL: http://localhost/Airport_Web/cakephp_cms_tuto_v0_6_1/
+
+
+2022-10-27 16:09:10 Error: [Cake\Http\Exception\MissingControllerException] Controller class Img could not be found. in C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Controller\ControllerFactory.php on line 226
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Stack Trace:
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Controller\ControllerFactory.php:65
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\BaseApplication.php:311
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:77
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\authorization\src\Middleware\AuthorizationMiddleware.php:129
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\authentication\src\Middleware\AuthenticationMiddleware.php:124
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Middleware\BodyParserMiddleware.php:159
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php:161
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php:68
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php:126
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php:60
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:58
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Server.php:90
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\webroot\index.php:40
+
+Request URL: /img/articles/
+Referer URL: http://localhost/Airport_Web/cakephp_cms_tuto_v0_6_1/
+
+
+2022-10-27 16:09:18 Error: [Cake\Http\Exception\MissingControllerException] Controller class Img could not be found. in C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Controller\ControllerFactory.php on line 226
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Stack Trace:
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Controller\ControllerFactory.php:65
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\BaseApplication.php:311
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:77
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\authorization\src\Middleware\AuthorizationMiddleware.php:129
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\authentication\src\Middleware\AuthenticationMiddleware.php:124
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Middleware\BodyParserMiddleware.php:159
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php:161
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php:68
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php:126
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php:60
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:73
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Runner.php:58
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\vendor\cakephp\cakephp\src\Http\Server.php:90
+- C:\Ampps\www\Airport_Web\cakephp_cms_tuto_v0_6_1\webroot\index.php:40
+
+Request URL: /img/articles/
+Referer URL: http://localhost/Airport_Web/cakephp_cms_tuto_v0_6_1/
+
+

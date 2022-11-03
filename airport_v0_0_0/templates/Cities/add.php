@@ -16,8 +16,8 @@ echo $this->Html->script(
 );
 
 $urlToLinkedListFilter = $this->Url->build([
-    "controller" => "ProvincesStates",
-    "action" => "getByCountry",
+    "controller" => "Countries",
+    "action" => "getCountries",
     "_ext" => "json"
 ]);
 
@@ -32,19 +32,19 @@ echo $this->Html->script('Cities/add_edit', ['block' => 'scriptBottom']);
         </div>
     </aside>
     <div class="column-responsive column-80">
-        <div class="cities form content" ng-app="linkedlists" ng-controller="ProvincesStatesController">
+        <div class="cities form content" ng-app="linkedlists" ng-controller="CountriesController">
             <?= $this->Form->create($city) ?>
             <fieldset>
                 <legend><?= __('Add City') ?></legend>
                 <div>
                     <?= __('Countries') ?> :
-                    <select name="country_id" id="country-id" ng-model="country" ng-options="country.nazev for country in Countries track by country.id">
+                    <select name="country_id" id="country-id" ng-model="country" ng-options="country.country for country in countries track by country.id">
                         <option value=''>Select</option>
                     </select>
                 </div>
                 <div>
                     <?= __('Provinces') . ' ' . '(States)' ?> :
-                    <select name="provincesStates_id" id="provincesStates-id" ng-disabled="!country" ng-model="provincesStates" ng-options="provincesStates.province_states for provincesStates in country.provincesStates track by provincesStates.id">
+                    <select name="province_id" id="province-id" ng-disabled="!country" ng-model="provincesStates" ng-options="provinces_states.province_states for provinces_states in country.provinces_states track by provinces_states.id">
                         <option value=''>Select</option>
                     </select>
                 </div>
