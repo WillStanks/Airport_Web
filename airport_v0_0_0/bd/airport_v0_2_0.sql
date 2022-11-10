@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 27 oct. 2022 à 16:46
+-- Généré le : jeu. 10 nov. 2022 à 17:47
 -- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.27
 
@@ -47,7 +47,9 @@ INSERT INTO `cities` (`id`, `province_id`, `city`) VALUES
 (7, 4, 'Miami'),
 (8, 5, 'Los Angeles'),
 (9, 5, 'Long Beach'),
-(10, 4, 'Orlando');
+(10, 4, 'Orlando'),
+(11, 1, 'Limoilou'),
+(12, 1, 'Rimouski');
 
 -- --------------------------------------------------------
 
@@ -65,7 +67,7 @@ CREATE TABLE `countries` (
 --
 
 INSERT INTO `countries` (`id`, `country`) VALUES
-(1, 'Canada'),
+(1, 'Canada MOD'),
 (2, 'États-Unis'),
 (3, 'Mexique'),
 (4, 'Pérou'),
@@ -76,8 +78,9 @@ INSERT INTO `countries` (`id`, `country`) VALUES
 (9, 'Allemagne'),
 (10, 'Roumanie'),
 (11, 'Brésil'),
-(12, 'Argentine MOD'),
-(18, 'Espagne');
+(12, 'Argentine'),
+(19, 'Espagne'),
+(21, 'Mexique');
 
 -- --------------------------------------------------------
 
@@ -320,13 +323,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `cities`
 --
 ALTER TABLE `cities`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `i18n`

@@ -7,6 +7,8 @@ app.controller('CountryCRUDCtrl', ['$scope', 'CountryCRUDService', function ($sc
             .then(function success(response) {
                 $scope.message = 'Country data updated!';
                 $scope.errorMessage = '';
+                // Rafraichir la liste
+                $scope.getAllCountries();
             },
                 function error(response) {
                     $scope.errorMessage = 'Error updating Country!';
@@ -14,12 +16,10 @@ app.controller('CountryCRUDCtrl', ['$scope', 'CountryCRUDService', function ($sc
                 });
     }
 
-    $scope.getCountry = function () {
-        var id = $scope.country.id;
-        CountryCRUDService.getCountry($scope.country.id)
+    $scope.getCountry = function (id) {
+        CountryCRUDService.getCountry(id)
             .then(function success(response) {
                 $scope.country = response.data.country;
-                //                        $scope.country.id = id;
                 $scope.message = '';
                 $scope.errorMessage = '';
             },
@@ -39,6 +39,8 @@ app.controller('CountryCRUDCtrl', ['$scope', 'CountryCRUDService', function ($sc
                 .then(function success(response) {
                     $scope.message = 'Country added!';
                     $scope.errorMessage = '';
+                    // Rafraichir la liste
+                    $scope.getAllCountries();
                 },
                     function error(response) {
                         $scope.errorMessage = 'Error adding country!';
@@ -56,6 +58,8 @@ app.controller('CountryCRUDCtrl', ['$scope', 'CountryCRUDService', function ($sc
                 $scope.message = 'Country deleted!';
                 $scope.country = null;
                 $scope.errorMessage = '';
+                // Rafraichir la liste
+                $scope.getAllCountries();
             },
                 function error(response) {
                     $scope.errorMessage = 'Error deleting country!';
