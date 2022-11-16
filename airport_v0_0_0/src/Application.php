@@ -86,6 +86,7 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
         $this->addPlugin('Authorization');
         $this->addPlugin('CakePdf');
         $this->addPlugin('BootstrapUI');
+        $this->addPlugin('Wirecore/CakePHP_JWT');
     }
 
     /**

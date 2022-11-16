@@ -80,6 +80,14 @@ return static function (RouteBuilder $routes) {
     $routes->prefix('api', function (RouteBuilder $builder) {
         //    $routes->setExtensions(['json']);
         $builder->resources('Countries');
+        $builder->resources('Users', [
+            'map' => [
+                'token' => [
+                    'action' => 'token',
+                    'method' => 'POST'
+                ]
+            ]
+        ]);
         $builder->fallbacks();
     });
 
