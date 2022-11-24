@@ -10,7 +10,25 @@ echo $this->Html->scriptBlock('var urlToRestApi = "' . $urlToRestApi . '";', ['b
 echo $this->Html->script('Countries/index', ['block' => 'scriptBottom']);
 ?>
 
-<div ng-app="app" ng-controller="CountryCRUDCtrl">
+<div ng-app="app" ng-controller="CountryCrudJwtCtrl">
+
+    <table>
+        <tr>
+            <td width="200">Utilisateur (username):</td>
+            <td><input type="text" id="username" ng-model="user.username" /></td>
+        </tr>
+        <tr>
+            <td width="200">Mot de passe (password):</td>
+            <td><input type="text" id="password" ng-model="user.password" /></td>
+        </tr>
+        <tr>
+            <a ng-click="login(user)">[Connexion] </a>
+            <a ng-click="logout()">[Déconnexion] </a>
+            <a ng-click="changePassword(user.password)">[Changer le mot de passe]</a>
+        </tr>
+    </table>
+    <p style="color: green">{{message}}</p>
+    <p style="color: red">{{errorMessage}}</p>
     <table>
         <tr>
             <td><input type="hidden" id="id" ng-model="country.id" /></td>
@@ -52,5 +70,4 @@ echo $this->Html->script('Countries/index', ['block' => 'scriptBottom']);
             </tr>
         </tbody>
     </table>
-    <!-- pre ng-show='krajRegions'>{{krajRegions | json }}</pre-->
 </div>

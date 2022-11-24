@@ -20,29 +20,27 @@ namespace App;
 
 use Cake\Core\Configure;
 use Cake\Core\ContainerInterface;
+use Cake\Core\Exception\MissingPluginException;
 use Cake\Datasource\FactoryLocator;
 use Cake\Error\Middleware\ErrorHandlerMiddleware;
 use Cake\Http\BaseApplication;
 use Cake\Http\Middleware\BodyParserMiddleware;
-//use Cake\Http\Middleware\CsrfProtectionMiddleware;
+use Cake\Http\Middleware\CsrfProtectionMiddleware;
 use Cake\Http\MiddlewareQueue;
 use Cake\ORM\Locator\TableLocator;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
-
 use Authentication\AuthenticationService;
 use Authentication\AuthenticationServiceInterface;
 use Authentication\AuthenticationServiceProviderInterface;
 use Authentication\Middleware\AuthenticationMiddleware;
 use Cake\Routing\Router;
 use Psr\Http\Message\ServerRequestInterface;
-
 use Authorization\AuthorizationService;
 use Authorization\AuthorizationServiceInterface;
 use Authorization\AuthorizationServiceProviderInterface;
 use Authorization\Middleware\AuthorizationMiddleware;
 use Authorization\Policy\OrmResolver;
-
 
 /**
  * Application setup class.
@@ -60,9 +58,14 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
      */
     public function bootstrap(): void
     {
+        $this->addPlugin('CakePdf');
+
+        $this->addPlugin('BootstrapUI');
+
+        $this->addPlugin('Wirecore/CakePHP_JWT');
+
         // Call parent to load bootstrap from files.
         parent::bootstrap();
-        $this->addPlugin(\BootstrapUI\Plugin::class);
 
         if (PHP_SAPI === 'cli') {
             $this->bootstrapCli();
@@ -84,9 +87,6 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
 
         // Load more plugins here
         $this->addPlugin('Authorization');
-        $this->addPlugin('CakePdf');
-        $this->addPlugin('BootstrapUI');
-        $this->addPlugin('Wirecore/CakePHP_JWT');
     }
 
     /**
@@ -121,15 +121,14 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
             ->add(new BodyParserMiddleware())
 
             // Cross Site Request Forgery (CSRF) Protection Middleware
-            // https://book.cakephp.org/4/en/security/csrf.html#cross-site-request-forgery-csrf-middleware
-            //->add(new CsrfProtectionMiddleware([
-            //   'httponly' => true,
-            //]))
-            ->add(new RoutingMiddleware($this))
-            // add Authentication after RoutingMiddleware
+            // https://book.cakephp.org/4/en/controllers/middleware.html#cross-site-request-forgery-csrf-middleware
+            /*                ->add(new CsrfProtectionMiddleware([
+                  'httponly' => true,
+                  ]))
+                  ->add(new RoutingMiddleware($this))
+                 */               // add Authentication after RoutingMiddleware
             ->add(new AuthenticationMiddleware($this))
-            ->add(new AuthorizationMiddleware($this));
-
+            ->add(new AuthorizationMiddleware($this));;
 
         return $middlewareQueue;
     }
@@ -154,8 +153,11 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
      */
     protected function bootstrapCli(): void
     {
-        $this->addOptionalPlugin('Cake/Repl');
-        $this->addOptionalPlugin('Bake');
+        try {
+            $this->addPlugin('Bake');
+        } catch (MissingPluginException $e) {
+            // Do not halt if the plugin is missing
+        }
 
         $this->addPlugin('Migrations');
 
@@ -172,7 +174,7 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
         // Load identifiers, ensure we check email and password fields
         $authenticationService->loadIdentifier('Authentication.Password', [
             'fields' => [
-                'username' => 'email',
+                'username' => 'username',
                 'password' => 'password',
             ]
         ]);
@@ -182,14 +184,14 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
         // Configure form data check to pick email and password
         $authenticationService->loadAuthenticator('Authentication.Form', [
             'fields' => [
-                'username' => 'email',
+                'username' => 'username',
                 'password' => 'password',
             ],
-            'loginUrl' => Router::url('/users/login'),
+            'loginUrl' => Router::url('/api/users/token'), // Modifié pour l'accès de l'application monopage
         ]);
-
         return $authenticationService;
     }
+
     public function getAuthorizationService(ServerRequestInterface $request): AuthorizationServiceInterface
     {
         $resolver = new OrmResolver();
