@@ -17,6 +17,7 @@ class CountriesController extends AppController
 
     public function index()
     {
+        $this->Authorization->skipAuthorization();
         $countries = $this->Countries->find('all')->all();
         $this->set('countries', $countries);
         $this->viewBuilder()->setOption('serialize', ['countries']);

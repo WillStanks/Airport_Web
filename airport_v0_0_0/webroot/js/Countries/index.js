@@ -84,7 +84,7 @@ app.controller('CountryCrudJwtCtrl', ['$scope', 'CountryCrudJwtService', functio
 
     $scope.login = function () {
         if ($scope.user != null && $scope.user.username) {
-            KrajRegionCrudJwtService.login($scope.user)
+            CountryCrudJwtService.login($scope.user)
                     .then(function success(response) {
                         $scope.message = $scope.user.username + ' en session!';
                         $scope.errorMessage = '';
@@ -108,7 +108,7 @@ app.controller('CountryCrudJwtCtrl', ['$scope', 'CountryCrudJwtService', functio
         $scope.errorMessage = 'Utilisateur déconnecté!';
     }
     $scope.changePassword = function () {
-        KrajRegionCrudJwtService.changePassword($scope.user.password)
+        CountryCrudJwtService.changePassword($scope.user.password)
                 .then(function success(response) {
                     $scope.message = 'Mot de passe mis à jour!';
                     $scope.errorMessage = '';
