@@ -25,7 +25,14 @@
                         <td><?= h($reservation->title) ?></td>
                         <td><?= h($reservation->dep_city->city) ?></td>
                         <td><?= h($reservation->dest_city->city) ?></td>
-                        <td><?= @$this->Html->image('reservations/' . $reservation->image, ['style' => 'max_width:50px;height:50px;border-radius:50%;']) ?></td>
+                        <td>
+                            <?php
+                            if (!empty($reservation->files)) {
+                                $file = $reservation->files[0];
+                                echo $this->Html->image($file->path . $file->name, ['style' => 'max-width:50px;height:50px;border-radius:50%;']);
+                            }
+                            ?>
+                        </td>
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $reservation->slug]) ?>
                             <?= $this->Html->link('(pdf)', ['action' => 'view', $reservation->slug . '.pdf']) ?>

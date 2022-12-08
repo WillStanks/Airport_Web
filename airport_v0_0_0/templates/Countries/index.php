@@ -1,7 +1,8 @@
 <?php
 echo $this->Html->script(
     [
-        'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js'
+        'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js',
+        'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit'
     ],
     ['block' => 'scriptLibraries']
 );
@@ -11,7 +12,8 @@ echo $this->Html->script('Countries/index', ['block' => 'scriptBottom']);
 ?>
 
 <div ng-app="app" ng-controller="CountryCrudJwtCtrl">
-
+    <div id="example1"></div>
+    <p style="color:red;">{{ captcha_status }}</p>
     <table>
         <tr>
             <td width="200">Utilisateur (username):</td>

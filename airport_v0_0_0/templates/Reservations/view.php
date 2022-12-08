@@ -96,6 +96,35 @@
                     </div>
                 <?php endif; ?>
             </div>
+            <div class="related">
+                <h4><?= __('Related Files') ?></h4>
+                <?php if (!empty($reservation->files)) : ?>
+                    <div class="table-responsive">
+                        <table>
+                            <tr>
+                                <th><?= __('Title') ?></th>
+                                <th><?= __('Created') ?></th>
+                                <th><?= __('Modified') ?></th>
+                                <th class="actions"><?= __('Actions') ?></th>
+                            </tr>
+                            <?php foreach ($reservation->files as $files) : ?>
+                                <tr>
+                                    <td>
+                                        <?= $this->Html->image($files->path . $files->name, ['style' => 'max-width:50px;height:50px;border-radius:50%;']); ?>
+                                    </td>
+                                    <td><?= h($files->created) ?></td>
+                                    <td><?= h($files->modified) ?></td>
+                                    <td class="actions">
+                                        <?= $this->Html->link(__('View'), ['controller' => 'Files', 'action' => 'view', $files->id]) ?>
+                                        <?= $this->Html->link(__('Edit'), ['controller' => 'Files', 'action' => 'edit', $files->id]) ?>
+                                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Files', 'action' => 'delete', $files->id], ['confirm' => __('Are you sure you want to delete # {0}?', $files->id)]) ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </table>
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 </div>

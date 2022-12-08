@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 24, 2022 at 07:09 PM
+-- Generation Time: Dec 08, 2022 at 01:15 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.27
 
@@ -81,6 +81,29 @@ INSERT INTO `countries` (`id`, `country`) VALUES
 (12, 'Argentine'),
 (19, 'Espagne'),
 (21, 'Mexique');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `files`
+--
+
+CREATE TABLE `files` (
+  `id` int NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `path` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1 = Active, 0 = Inactive'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `files`
+--
+
+INSERT INTO `files` (`id`, `name`, `path`, `created`, `modified`, `status`) VALUES
+(1, 'mexique.jpg', 'reservations/', '2022-12-01 17:27:26', '2022-12-01 17:27:26', 1),
+(3, 'drapeauCosta.png', 'reservations/', '2022-12-01 18:12:51', '2022-12-01 18:13:19', 1);
 
 -- --------------------------------------------------------
 
@@ -202,6 +225,26 @@ INSERT INTO `reservations` (`id`, `user_id`, `title`, `depCity_id`, `destCity_id
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reservations_files`
+--
+
+CREATE TABLE `reservations_files` (
+  `id` int NOT NULL,
+  `reservation_id` int NOT NULL,
+  `file_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reservations_files`
+--
+
+INSERT INTO `reservations_files` (`id`, `reservation_id`, `file_id`) VALUES
+(1, 18, 1),
+(2, 19, 3);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `roles`
 --
 
@@ -245,7 +288,7 @@ INSERT INTO `users` (`id`, `uuid`, `role_id`, `email`, `username`, `confirmed`, 
 (4, '', 2, 'will@will.com', 'will', 0, '$2y$10$NW1.Bot3pOhdOfYtzUKEnuv5RH2anfXAXiK.jFjFXBaFZib/Izgrq', '2022-09-11 17:16:58', '2022-09-11 17:16:58'),
 (12, '3e9c6a24-9125-43a5-88a1-ebe0bd10073e', 3, 'william4800@hotmail.com', 'william', 1, '$2y$10$vWfpSdjEiIvyKJSQEnuQjOuNi4V6OUp2fEYvjIOxp5HKQu4gItaNu', '2022-09-19 02:03:54', '2022-09-19 02:06:48'),
 (14, 'eb130214-7e6a-47bc-98b3-6a93291e3976', 2, '1946026@cmontmorency.qc.ca', '1946026', 0, '$2y$10$259yMOmfl6tcM769JoVzeOK1/fIU04g9AU2qowlRlx10v0TWNuho.', '2022-09-20 15:51:00', '2022-09-20 15:51:00'),
-(15, 'f799e18a-0ea3-457b-8164-d1d4708b4583', 2, 'avecjwt@gmail.com', 'avecjwt', 1, '$2y$10$I0GMZEIeXI9xxnZ3pvil9u5/Tsjr9ey9Anlt3GRtSQc09PVNh0LvS', '2022-11-24 17:19:25', '2022-11-24 17:19:25'),
+(15, 'f799e18a-0ea3-457b-8164-d1d4708b4583', 2, 'avecjwt@gmail.com', 'avecjwt', 1, '$2y$10$TEohJHKKrjtLN0hlrZCUEe7IaKSTWhybymjVREYE7hCQ2PXKZXdXO', '2022-11-24 17:19:25', '2022-11-30 19:58:21'),
 (16, 'dbcbbfd9-3bc9-4673-96c6-d6db035e0a6a', 2, 'avecjwt@jwt.com', 'avecjwt2', 1, '$2y$10$lbqq1qQauiHPkD1STfZAyujeSNIpHh36z5sEzQVELmogNUtZswygS', '2022-11-24 17:37:37', '2022-11-24 18:13:06');
 
 --
@@ -263,6 +306,12 @@ ALTER TABLE `cities`
 -- Indexes for table `countries`
 --
 ALTER TABLE `countries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `files`
+--
+ALTER TABLE `files`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -305,6 +354,14 @@ ALTER TABLE `reservations`
   ADD KEY `destCity_id` (`destCity_id`);
 
 --
+-- Indexes for table `reservations_files`
+--
+ALTER TABLE `reservations_files`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `reservation_id` (`reservation_id`),
+  ADD KEY `file_id` (`file_id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -335,6 +392,12 @@ ALTER TABLE `countries`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- AUTO_INCREMENT for table `files`
+--
+ALTER TABLE `files`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `i18n`
 --
 ALTER TABLE `i18n`
@@ -357,6 +420,12 @@ ALTER TABLE `provinces_states`
 --
 ALTER TABLE `reservations`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `reservations_files`
+--
+ALTER TABLE `reservations_files`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -400,6 +469,13 @@ ALTER TABLE `reservations`
   ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`depCity_id`) REFERENCES `cities` (`id`),
   ADD CONSTRAINT `reservations_ibfk_3` FOREIGN KEY (`destCity_id`) REFERENCES `cities` (`id`);
+
+--
+-- Constraints for table `reservations_files`
+--
+ALTER TABLE `reservations_files`
+  ADD CONSTRAINT `reservations_files_ibfk_2` FOREIGN KEY (`file_id`) REFERENCES `files` (`id`),
+  ADD CONSTRAINT `reservations_files_ibfk_3` FOREIGN KEY (`reservation_id`) REFERENCES `reservations` (`id`);
 
 --
 -- Constraints for table `users`

@@ -35,7 +35,7 @@ class ReservationsController extends AppController
        $reservations = $this->paginate($this->Reservations);
 */
         $reservations = $this->Reservations->find('all', [
-            'contain' => ['Users', 'DestCities', 'DepCities']
+            'contain' => ['Users', 'DestCities', 'DepCities', 'Files']
         ]);
         $this->set(compact('reservations'));
     }
@@ -51,7 +51,7 @@ class ReservationsController extends AppController
     {
         $this->viewBuilder()->setLayout('cakephp_default');
         $this->Authorization->skipAuthorization();
-        $reservation = $this->Reservations->findBySlug($slug)->contain('Users')->contain('Planes')->contain('DepCities')->contain('DestCities')->firstOrFail();
+        $reservation = $this->Reservations->findBySlug($slug)->contain('Users')->contain('Planes')->contain('Files')->contain('DepCities')->contain('DestCities')->firstOrFail();
 
         $this->set(compact('reservation'));
     }
@@ -86,7 +86,7 @@ class ReservationsController extends AppController
             if (!$reservation->getErrors) {
                 $image = $this->request->getData('image_file');
 
-                $name = $image->getClientFileName();
+                $name = $image->getClientFilename();
 
                 $targetPath = WWW_ROOT . 'img' . DS . 'reservations' . DS . $name;
 

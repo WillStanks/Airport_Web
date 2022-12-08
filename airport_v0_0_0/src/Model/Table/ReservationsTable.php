@@ -73,6 +73,11 @@ class ReservationsTable extends Table
             'targetForeignKey' => 'plane_id',
             'joinTable' => 'planes_reservations',
         ]);
+        $this->belongsToMany('Files', [
+            'foreignKey' => 'reservation_id',
+            'targetForeignKey' => 'file_id',
+            'joinTable' => 'reservations_files',
+        ]);
     }
 
     /**
